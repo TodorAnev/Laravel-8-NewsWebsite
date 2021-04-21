@@ -21,3 +21,14 @@
 - Adding route to web.php
 - Don't forget to use the Controller
 - Creating Controller Method
+
+
+
+
+
+					Custom Login Page
+					
+- Changing default login.blade.php contents with template contents
+- updating css and js with asset
+- Copying names, ids, routes from default login file inputs and pasting them into the input fields of the template so they work the same way
+- Changing static names to dynamic(to the user that is logged in) - Auth::user()->name; Auth::user()->email

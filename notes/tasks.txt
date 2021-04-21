@@ -1,0 +1,2 @@
+1. Add Forgot Password Template Page and add the functionality from the forgot-password.blade.php default file(in auth folder)
+2. Add Register Template Page and add the functionality
