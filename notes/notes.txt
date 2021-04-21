@@ -1,0 +1,23 @@
+					Admin Panel Setup
+
+- Creating backend folder for the template and pasting all the asset and other files that are from the template
+- Creating Admin Folder (we put everything admin related here)
+- In Admin Folder we create admin_master.blade.php and index.blade.php
+- In Admin Folder we create another folder - body
+- Copying index template file and pasting it into admin_master.blade.php file
+- {{ asset('') }} - redirects to public folder
+- editing the css and js and image paths from template with asset
+- creating files for static code - header, sidebar, footer
+- creating file for main admin body part(index.blade.php) - dynamic part
+
+
+
+
+
+					Admin User Logout
+					
+- adding href route in Log Out <a> tag
+- Creating controller : php artisan make:controller AdminController
+- Adding route to web.php
+- Don't forget to use the Controller
+- Creating Controller Method
