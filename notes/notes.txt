@@ -56,3 +56,4 @@
 - Adding toaster
 - We have to create custom pagination, because the laravel pagination is not supported
 - Creating file in main view file for custom pagination
+- https://www.codecheef.org/article/laravel-7-custom-pagination-example-tutorial
