@@ -32,3 +32,27 @@
 - updating css and js with asset
 - Copying names, ids, routes from default login file inputs and pasting them into the input fields of the template so they work the same way
 - Changing static names to dynamic(to the user that is logged in) - Auth::user()->name; Auth::user()->email
+
+
+
+
+
+					Project Category
+					
+- Create migration for categories : php artisan make:migration create_categories_table --create=categories
+- Create migration for subcategories : php artisan make:migration create_subcategories_table --create=subcategories
+- Create fields and migrate
+- Create folders for backend and frontend controllers
+- Creating controller : php artisan make:controller Backend/CategoryController
+- Adding routes to sidebar links
+- Creating route in web.php
+- Creating Method in Controller
+- Creating backend and category folders in view
+- Creating index page in category folder and returning it in the controller
+- Creating index.blade.php page for the category in Admin 
+- Add category method and routes
+- Add category add page and category add methods and routes
+- Display verification error in create.blade.php
+- Adding toaster
+- We have to create custom pagination, because the laravel pagination is not supported
+- Creating file in main view file for custom pagination

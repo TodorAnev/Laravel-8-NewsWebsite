@@ -1,1 +1,2 @@
 1. Register and Login fields verification 
+2. Can there be custom validation message(Category Controller, Add Category)
