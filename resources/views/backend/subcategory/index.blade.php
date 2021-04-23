@@ -32,9 +32,9 @@
 	  <div class="card-body">
 
 	    <div class="d-flex justify-content-between align-items-center mb-3">
-	    	<h4 class="card-title mb-0">Category Page</h4>
-	    	<a href="{{ route('add.category') }}">
-	    		<button type="button" class="btn btn-primary btn-fw float-right">Add Category</button>
+	    	<h4 class="card-title mb-0">SubCategory Page</h4>
+	    	<a href="{{ route('add.subcategory') }}">
+	    		<button type="button" class="btn btn-primary btn-fw float-right">Add SubCategory</button>
 	    	</a>
 	    </div>
 
@@ -43,23 +43,25 @@
 	        <thead>
 	          <tr>
 	            <th> # </th>
-	            <th> Category English </th>
-	            <th> Category Bulgarian </th>
+	            <th> SubCategory English </th>
+	            <th> SubCategory Bulgarian </th>
+	            <th> Category Name </th>
 	            <th> Action </th>
 	          </tr>
 	        </thead>
 	        <tbody>
 
 	        	@php($i = 1)
-	        	@foreach($category as $row)
+	        	@foreach($subcategory as $row)
 	          <tr>
 	            <td> {{ $i++ }} </td>
+	            <td> {{ $row->subcategory_en }} </td>
+	            <td> {{ $row->subcategory_bg }} </td>
 	            <td> {{ $row->category_en }} </td>
-	            <td> {{ $row->category_bg }} </td>
 	            <td> 
 
-		    <a href="{{ route('edit.category',$row->id) }}" class="btn btn-info">Edit</a>
-		    <a href="{{ route('delete.category',$row->id) }}" onclick="return confirm('Are you sure you want to delete this category?')" class="btn btn-danger">Delete</a>
+		    <a href="{{ route('edit.subcategory',$row->id) }}" class="btn btn-info">Edit</a>
+		    <a href="{{ route('delete.subcategory',$row->id) }}" onclick="return confirm('Are you sure you want to delete this subcategory?')" class="btn btn-danger">Delete</a>
 
 	            </td>
 	          </tr>
@@ -67,7 +69,7 @@
 
 	        </tbody>
 	      </table>
-	      {{ $category->links('pagination-links') }}
+	      {{ $subcategory->links('pagination-links') }}
 	    </div>
 	  </div>
 	</div>

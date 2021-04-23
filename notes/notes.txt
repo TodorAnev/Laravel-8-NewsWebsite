@@ -57,3 +57,15 @@
 - We have to create custom pagination, because the laravel pagination is not supported
 - Creating file in main view file for custom pagination
 - https://www.codecheef.org/article/laravel-7-custom-pagination-example-tutorial
+
+
+
+
+
+					Project SubCategory
+
+- Adding route in sidebar
+- Creating Controller for subcategories : php artisan make:controller Backend/SubCategoryController
+- Get all the data from categories table in create subcategory page(AddSubCategory method), so we can select which category we want to insert the subcategories in 
+- Creating relation in Index Method in SubCategoryController
+
