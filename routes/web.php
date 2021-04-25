@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\DistrictController;
 
 
 /*
@@ -57,3 +58,17 @@ Route::get('/edit/subcategory/{id}', [SubCategoryController::class, 'EditSubCate
 Route::post('/update/subcategory/{id}', [SubCategoryController::class, 'UpdateSubCategory'])->name('update.subcategory');
 
 Route::get('/delete/subcategory/{id}', [SubCategoryController::class, 'DeleteSubCategory'])->name('delete.subcategory');
+
+// Admin District
+
+Route::get('/district', [DistrictController::class, 'Index'])->name('district');
+
+Route::get('/add/district', [DistrictController::class, 'AddDistrict'])->name('add.district');
+
+Route::post('/store/district', [DistrictController::class, 'StoreDistrict'])->name('store.district');
+
+Route::get('/edit/district/{id}', [DistrictController::class, 'EditDistrict'])->name('edit.district');
+
+Route::post('/update/district/{id}', [DistrictController::class, 'UpdateDistrict'])->name('update.district');
+
+Route::get('/delete/district/{id}', [DistrictController::class, 'DeleteDistrict'])->name('delete.district');

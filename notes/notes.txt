@@ -69,3 +69,13 @@
 - Get all the data from categories table in create subcategory page(AddSubCategory method), so we can select which category we want to insert the subcategories in 
 - Creating relation in Index Method in SubCategoryController
 
+
+
+
+
+					Project District and SubDistrict
+
+
+
+
+
