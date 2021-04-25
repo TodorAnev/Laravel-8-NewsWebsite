@@ -1,3 +1,4 @@
 1. Register and Login fields verification 
 2. Can there be custom validation message(Category Controller, Add Category)
 3. Remeber me in login page, css is strange, when clicking the button
+4. Try to move the alert notification lower
