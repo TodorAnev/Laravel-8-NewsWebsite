@@ -80,8 +80,8 @@
             </div>
           </li>
 
-                    <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#district" aria-expanded="false" aria-controls="auth">
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#district" aria-expanded="false" aria-controls="district">
               <span class="menu-icon">
                 <i class="mdi mdi-security"></i>
               </span>
@@ -92,6 +92,24 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('district') }}"> District </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('subdistrict') }}"> SubDistrict </a></li>
+
+
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#post" aria-expanded="false" aria-controls="post">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">Posts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="post">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('add.post') }}"> Add Post </a></li>
+                <li class="nav-item"> <a class="nav-link" href=""> All Posts </a></li>
 
 
               </ul>

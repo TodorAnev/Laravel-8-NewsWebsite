@@ -23,7 +23,16 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
     <!-- End layout styles -->
 
+    <!-- Toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
+    <!-- Summernote Editor -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+
+
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
   </head>
@@ -95,6 +104,21 @@
     }
     @endif
 
+    </script>
+
+    <!-- summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script type="text/javascript">
+        $('#summernote').summernote({
+            height: 150
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('#summernote1').summernote({
+            height: 150
+        });
     </script>
 
   </body>

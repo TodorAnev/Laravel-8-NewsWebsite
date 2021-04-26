@@ -75,6 +75,18 @@
 
 					Project District and SubDistrict
 
+- Same as Category and SubCategory
+
+
+
+
+
+					News Posts
+
+- Adding Editor 
+- Adding Image Intervention - http://image.intervention.io/
+
+
 
 
 
