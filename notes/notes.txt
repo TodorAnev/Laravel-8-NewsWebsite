@@ -85,6 +85,11 @@
 
 - Adding Editor 
 - Adding Image Intervention - http://image.intervention.io/
+- Loading SubCategories and SubDistricts when we Select Category or discript(AJAX)
+- Adding AJAX CDN and in admin_master : <meta name="csrf-token" content="{{ csrf_token() }}"> adding the csrf token
+- Creating a web route for the AJAX url to get all the information
+- $("#subcategory_id").empty(); We make it empty
+- $.each(data,function(key,value){} - Gets the Key and the value of the data we get from the DB and we can use it(append it for example)
 
 
 

@@ -2,6 +2,8 @@
 
 @section('admin')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <div class="row">
   <div class="col-12 grid-margin stretch-card">
     <div class="card corona-gradient-card">
@@ -56,10 +58,9 @@
           </div>
 
           <div class="form-group col-md-6">
-            <label for="exampleInputName1">SubCategory</label>
-            <select class="form-control" id="exampleSelectGender" name="subcategory_id">
-            <option>Male</option>
-            <option>Female</option>
+            <label for="subcategory_id">SubCategory</label>
+            <select class="form-control" name="subcategory_id" id="subcategory_id">
+            <option disabled="" selected="">Select SubCategory</option>
           </select>
           </div>
         </div> <!-- End row -->
@@ -78,9 +79,8 @@
 
           <div class="form-group col-md-6">
             <label for="exampleInputName1">SubDistrict</label>
-            <select class="form-control" id="exampleSelectGender" name="subdistrict_id">
-            <option>Male</option>
-            <option>Female</option>
+            <select class="form-control" id="subdistrict_id" name="subdistrict_id">
+            <option disabled="" selected="">Select SubDistrict</option>
           </select>
           </div>
         </div> <!-- End row -->
@@ -142,5 +142,57 @@
     </div>
   </div>
 </div>
+
+<!-- This AJAX is for Category -->
+<script type="text/javascript">
+   $(document).ready(function() {
+         $('select[name="category_id"]').on('change', function(){
+             var category_id = $(this).val();
+             if(category_id) {
+                 $.ajax({
+         url: "{{  url('/get/subcategory/') }}/"+category_id,
+         type:"GET",
+         dataType:"json",
+                     success:function(data) {
+                        $("#subcategory_id").empty();
+$.each(data,function(key,value){
+    $("#subcategory_id").append('<option value="'+value.id+'">'+value.subcategory_en+'</option>');
+                              });
+
+                     },
+                    
+                 });
+             } else {
+                 alert('danger');
+             }
+         });
+     });
+</script>
+
+<!-- This AJAX is for Category -->
+<script type="text/javascript">
+   $(document).ready(function() {
+         $('select[name="district_id"]').on('change', function(){
+             var district_id = $(this).val();
+             if(district_id) {
+                 $.ajax({
+         url: "{{  url('/get/subdistrict/') }}/"+district_id,
+         type:"GET",
+         dataType:"json",
+                     success:function(data) {
+                        $("#subdistrict_id").empty();
+$.each(data,function(key,value){
+    $("#subdistrict_id").append('<option value="'+value.id+'">'+value.subdistrict_en+'</option>');
+                              });
+
+                     },
+                    
+                 });
+             } else {
+                 alert('danger');
+             }
+         });
+     });
+</script>
 
 @endsection

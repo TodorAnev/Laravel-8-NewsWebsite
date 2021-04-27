@@ -90,6 +90,13 @@ Route::post('/update/subdistrict/{id}', [SubDistrictController::class, 'UpdateSu
 
 Route::get('/delete/subdistrict/{id}', [SubDistrictController::class, 'DeleteSubDistrict'])->name('delete.subdistrict');
 
+// JSON Data for Category and District
+
+Route::get('/get/subcategory/{category_id}', [PostController::class, 'GetSubCategory']);
+
+Route::get('/get/subdistrict/{district_id}', [PostController::class, 'GetSubDistrict']);
+
+
 // Admin Posts
 
 Route::get('/add/post', [PostController::class, 'Create'])->name('add.post');

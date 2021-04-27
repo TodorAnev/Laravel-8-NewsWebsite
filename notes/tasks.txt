@@ -3,3 +3,4 @@
 3. Remeber me in login page, css is strange, when clicking the button
 4. Try to move the alert notification lower
 5. Some id fields instead of integer are string, try to change those?
+6. Next page in categories(in everywhere probably) starts from 1.

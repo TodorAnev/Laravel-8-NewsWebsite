@@ -14,4 +14,14 @@ class PostController extends Controller
 
     	return view('backend.post.create', compact('category','district'));
     }
+
+    public function GetSubCategory($category_id){
+    	$subcateogry = DB::table('subcategories')->where('category_id', $category_id)->get();
+    	return response()->json($subcateogry);
+    }
+
+    public function GetSubDistrict($district_id){
+    	$subdistrict = DB::table('subdistricts')->where('district_id', $district_id)->get();
+    	return response()->json($subdistrict);
+    }
 }
