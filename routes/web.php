@@ -100,3 +100,7 @@ Route::get('/get/subdistrict/{district_id}', [PostController::class, 'GetSubDist
 // Admin Posts
 
 Route::get('/add/post', [PostController::class, 'Create'])->name('add.post');
+
+Route::post('/store/post', [PostController::class, 'StorePost'])->name('store.post');
+
+Route::get('/all/post', [PostController::class, 'AllPost'])->name('all.post');

@@ -90,6 +90,7 @@
 - Creating a web route for the AJAX url to get all the information
 - $("#subcategory_id").empty(); We make it empty
 - $.each(data,function(key,value){} - Gets the Key and the value of the data we get from the DB and we can use it(append it for example)
+- Using Helper Class Laravel
 
 
 

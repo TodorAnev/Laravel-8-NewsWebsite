@@ -30,8 +30,8 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Add New Post</h4>
-      <form class="forms-sample">
-
+      <form class="forms-sample" method="POST" action="{{ route('store.post') }}" enctype="multipart/form-data">
+        @csrf
         <div class="row">
           <div class="form-group col-md-6">
             <label for="exampleInputName1">Title English</label>
@@ -123,16 +123,16 @@
         <div class="row ml-2">
 
             <label class="form-check-label col-md-3">
-              <input type="checkbox" name="headline" class="form-check-input"> Headline <i class="input-helper"></i></label>
+              <input type="checkbox" name="headline" class="form-check-input" value="1"> Headline <i class="input-helper"></i></label>
 
               <label class="form-check-label col-md-3">
-              <input type="checkbox" name="bigthumbnail" class="form-check-input"> General Big Thumbnail <i class="input-helper"></i></label>
+              <input type="checkbox" name="bigthumbnail" class="form-check-input" value="1"> General Big Thumbnail <i class="input-helper"></i></label>
 
               <label class="form-check-label col-md-3">
-              <input type="checkbox" name="first_section" class="form-check-input"> First Section <i class="input-helper"></i></label>
+              <input type="checkbox" name="first_section" class="form-check-input" value="1"> First Section <i class="input-helper"></i></label>
 
               <label class="form-check-label col-md-3">
-              <input type="checkbox" name="first_section_thumbnail" class="form-check-input"> First Section BigThumbnail <i class="input-helper"></i></label>
+  <input type="checkbox" name="first_section_thumbnail" class="form-check-input" value="1"> First Section BigThumbnail <i class="input-helper"></i></label>
 
         </div> <!-- End row -->
       <br> <br>

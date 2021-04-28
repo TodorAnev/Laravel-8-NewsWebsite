@@ -109,7 +109,7 @@
             <div class="collapse" id="post">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('add.post') }}"> Add Post </a></li>
-                <li class="nav-item"> <a class="nav-link" href=""> All Posts </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('all.post') }}"> All Posts </a></li>
 
 
               </ul>
