@@ -104,3 +104,9 @@ Route::get('/add/post', [PostController::class, 'Create'])->name('add.post');
 Route::post('/store/post', [PostController::class, 'StorePost'])->name('store.post');
 
 Route::get('/all/post', [PostController::class, 'AllPost'])->name('all.post');
+
+Route::get('/edit/post/{id}', [PostController::class, 'EditPost'])->name('edit.post');
+
+Route::post('/update/post/{id}', [PostController::class, 'UpdatePost'])->name('update.post');
+
+Route::get('/delete/post/{id}', [PostController::class, 'DeletePost'])->name('delete.post');

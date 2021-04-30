@@ -62,12 +62,12 @@
 	            <td> {{ Str::limit($row->title_en, 10) }} </td>
 	            <td> {{ $row->category_en }} </td>
 	            <td> {{ $row->district_en }} </td>
-	            <td> <img src="{{ $row->image }}" alt="Post Image" style="width: 50px; height: 50px;"> </td>
+	            <td> <img src="{{ URL::to($row->image) }}" alt="Post Image" style="width: 50px; height: 50px;"> </td>
 	            <td>{{ Carbon\Carbon::parse($row->post_date)->diffForHumans() }}</td>
 	            <td> 
 
-		    <a href="{{ route('edit.category',$row->id) }}" class="btn btn-info">Edit</a>
-		    <a href="{{ route('delete.category',$row->id) }}" onclick="return confirm('Are you sure you want to delete this category?')" class="btn btn-danger">Delete</a>
+		    <a href="{{ route('edit.post',$row->id) }}" class="btn btn-info">Edit</a>
+		    <a href="{{ route('delete.post',$row->id) }}" onclick="return confirm('Are you sure you want to delete this post?')" class="btn btn-danger">Delete</a>
 
 	            </td>
 	          </tr>

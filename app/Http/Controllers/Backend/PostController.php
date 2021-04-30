@@ -65,7 +65,7 @@ class PostController extends Controller
     		/*$image_one = 123123123.jpg or 123123123.png*/ 
     		Image::make($image)->resize(500,300)->save('image/postimg/' . $image_one);
 
-    	$data['image'] = '/image/postimg/' . $image_one;
+    	$data['image'] = 'image/postimg/' . $image_one;
     		 // image/postimg/343434343.png
 
     	DB::table('posts')->insert($data);
@@ -96,6 +96,101 @@ class PostController extends Controller
   		return view('backend.post.index', compact('post'));
 
 
+  }
+
+  public function EditPost($id){
+
+  	$post = DB::table('posts')->where('id', $id)->first();
+  	$category = DB::table('categories')->get();
+  	$district = DB::table('districts')->get();
+
+
+  	return view('backend.post.edit', compact('post','category', 'district'));
+
+  }
+
+  public function UpdatePost(Request $request, $id){
+
+  	$validated = $request->validate([
+
+        'category_id' => 'required',
+        'district_id' => 'required',
+        'title_en' => 'required',
+        'title_bg' => 'required',
+        'image' => 'required',
+
+    ]);
+
+    	$data = array(); // This is Query Builder
+    	$data['title_en'] = $request->title_en;
+    	$data['title_bg'] = $request->title_bg;
+    	$data['user_id'] = Auth::id();
+    	$data['category_id'] = $request->category_id;
+    	$data['subcategory_id'] = $request->subcategory_id;
+    	$data['district_id'] = $request->district_id;
+    	$data['subdistrict_id'] = $request->subdistrict_id;
+    	$data['tags_en'] = $request->tags_en;
+    	$data['tags_bg'] = $request->tags_bg;
+    	$data['details_en'] = $request->details_en;
+    	$data['details_bg'] = $request->details_bg;
+    	$data['title_bg'] = $request->title_bg;
+    	$data['headline'] = $request->headline;
+    	$data['first_section_thumbnail'] = $request->first_section_thumbnail;
+    	$data['first_section'] = $request->first_section;
+    	$data['bigthumbnail'] = $request->bigthumbnail;
+
+    	$oldimage = $request->oldimage;
+
+    	$image = $request->image;
+    		if ($image) {
+   	$image_one = uniqid() . '.' . $image->getClientOriginalExtension(); 
+    		/*$image_one = 123123123.jpg or 123123123.png*/ 
+    		Image::make($image)->resize(500,300)->save('image/postimg/' . $image_one);
+
+    	$data['image'] = 'image/postimg/' . $image_one;
+    		 // image/postimg/343434343.png
+
+    	DB::table('posts')->where('id', $id)->update($data);
+    	unlink($oldimage);
+
+    	$notification = array(
+
+    		'message' => 'Post Updated Successfully',
+    		'alert-type' => 'success'
+    	);
+
+    	return redirect()->route('all.post')->with($notification);
+    } else {
+	
+    	$data['image'] = $oldimage;
+    	DB::table('posts')->where('id', $id)->update($data);
+
+    	$notification = array(
+
+    		'message' => 'Post Updated Successfully',
+    		'alert-type' => 'success'
+    	);
+
+    	return redirect()->route('all.post')->with($notification);
+
+    }
+
+  } // End Update Method 
+
+  public function DeletePost($id){
+
+  	$post = DB::table('posts')->where('id', $id)->first();
+  	unlink($post->image);
+
+  	DB::table('posts')->where('id', $id)->delete();
+
+  	$notification = array(
+
+    		'message' => 'Post Deleted Successfully',
+    		'alert-type' => 'error'
+    	);
+
+    return redirect()->route('all.post')->with($notification);
   }
 
 }

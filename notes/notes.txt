@@ -91,6 +91,11 @@
 - $("#subcategory_id").empty(); We make it empty
 - $.each(data,function(key,value){} - Gets the Key and the value of the data we get from the DB and we can use it(append it for example)
 - Using Helper Class Laravel
+	- Edit Post Page :
+- we can get the data in the page from the DB, not only from the controller with compact() 
+- display img from DB src="{{ URL::to($post->image) }}" 
+- we make hidden input field for the oldimage so we can remove it 
+- adding if condition to check checkbox fields if they are selected in the DB
 
 
 
