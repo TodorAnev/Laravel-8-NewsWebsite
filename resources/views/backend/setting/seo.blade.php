@@ -27,49 +27,57 @@
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Social Settings</h4>
+        <h4 class="card-title">SEO Settings</h4>
 
 
-<form class="forms-sample" method="POST" action="{{ route('update.socials', $social->id) }}">
+
+<form class="forms-sample" method="POST" action="{{ route('update.seos', $seo->id) }}">
 @csrf
   <div class="form-group">
-    <label for="exampleInputUsername1">Facebook</label>
-    <input type="text" class="form-control" name="facebook" value="{{ $social->facebook }}">
-	    @error('facebook')
+    <label for="exampleInputUsername1">Meta Author</label>
+    <input type="text" class="form-control" name="meta_author" value="{{ $seo->meta_author }}">
+	    @error('meta_author')
 	    <span class="text-danger">{{ $message }}</span>
 	    @enderror
   </div>
 
   <div class="form-group">
-    <label for="exampleInputUsername1">Twitter</label>
-    <input type="text" class="form-control" name="twitter" value="{{ $social->twitter }}">
-      @error('twitter')
+    <label for="exampleInputUsername1">Meta Title</label>
+    <input type="text" class="form-control" name="meta_title" value="{{ $seo->meta_title }}">
+      @error('meta_title')
       <span class="text-danger">{{ $message }}</span>
       @enderror
   </div>
 
   <div class="form-group">
-    <label for="exampleInputUsername1">Youtube</label>
-    <input type="text" class="form-control" name="youtube" value="{{ $social->youtube }}">
-      @error('youtube')
+    <label for="exampleInputUsername1">Meta Keyword</label>
+    <input type="text" class="form-control" name="meta_keyword" value="{{ $seo->meta_keyword }}">
+      @error('meta_keyword')
       <span class="text-danger">{{ $message }}</span>
       @enderror
   </div>
 
   <div class="form-group">
-    <label for="exampleInputUsername1">Linkedin</label>
-    <input type="text" class="form-control" name="linkedin" value="{{ $social->linkedin }}">
-      @error('linkedin')
+      <label for="exampleTextarea1">Meta Description</label>
+      <textarea class="form-control" name="meta_description" id="summernote">{{ $seo->meta_description }}</textarea>
+  </div>
+
+  <div class="form-group">
+      <label for="exampleTextarea1">Google analytics</label>
+      <textarea class="form-control" name="google_analytics" id="summernote1">{{ $seo->google_analytics }}</textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputUsername1">Google verification</label>
+    <input type="text" class="form-control" name="google_verification" value="{{ $seo->google_verification }}">
+      @error('google_verification')
       <span class="text-danger">{{ $message }}</span>
       @enderror
   </div>
 
   <div class="form-group">
-    <label for="exampleInputUsername1">Instagram</label>
-    <input type="text" class="form-control" name="instagram" value="{{ $social->instagram }}">
-      @error('instagram')
-      <span class="text-danger">{{ $message }}</span>
-      @enderror
+      <label for="exampleTextarea1">Alexa analytics</label>
+      <textarea class="form-control" name="alexa_analytics" id="summernote2">{{ $seo->alexa_analytics }}</textarea>
   </div>
 
   <button type="submit" class="btn btn-primary mr-2">Submit</button>

@@ -122,5 +122,11 @@
         });
     </script>
 
+    <script type="text/javascript">
+        $('#summernote2').summernote({
+            height: 150
+        });
+    </script>
+
   </body>
 </html>
