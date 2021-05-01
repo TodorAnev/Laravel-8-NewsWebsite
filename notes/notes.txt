@@ -101,4 +101,11 @@
 
 
 
+					News Project Social links
+					
+- Creating migration and inserting 1 empty row and then adding the socials
+
+
+
+
 
