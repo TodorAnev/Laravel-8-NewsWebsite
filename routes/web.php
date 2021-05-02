@@ -144,3 +144,17 @@ Route::get('notice/active/{id}', [SettingController::class, 'ActiveNotice'])->na
 
 Route::get('notice/deactive/{id}', [SettingController::class, 'DeactiveNotice'])->name('notice.deactive');
 
+// Website Link 
+
+Route::get('/website/setting', [SettingController::class, 'WebsiteSetting'])->name('all.website');
+
+Route::get('/website/add', [SettingController::class, 'AddWebsite'])->name('add.website');
+
+Route::post('/store/website', [SettingController::class, 'StoreWebsite'])->name('store.website');
+
+Route::get('/edit/website/{id}', [SettingController::class, 'EditWebsite'])->name('edit.website');
+
+Route::post('/update/website/{id}', [SettingController::class, 'UpdateWebsite'])->name('update.website');
+
+Route::get('/delete/website/{id}', [SettingController::class, 'DeleteWebsite'])->name('delete.website');
+

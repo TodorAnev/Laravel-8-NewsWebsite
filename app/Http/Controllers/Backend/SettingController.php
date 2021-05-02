@@ -161,4 +161,86 @@ class SettingController extends Controller
     return redirect()->back()->with($notification);
 
     }
+
+    public function WebsiteSetting(){
+
+    	$website = DB::table('websites')->orderBy('id','desc')->paginate(5);
+    	return view('backend.website.index', compact('website'));
+
+    }
+
+    public function AddWebsite(){
+
+    	return view('backend.website.create');
+
+    }
+
+    public function StoreWebsite(Request $request){
+
+    	$validated = $request->validate([
+
+        'website_name' => 'required',
+        'website_link' => 'required',
+
+    	]);
+
+    	$data = array(); // This is Query Builder
+    	$data['website_name'] = $request->website_name;
+    	$data['website_link'] = $request->website_link;
+
+    	DB::table('websites')->insert($data);
+
+    	$notification = array(
+
+    		'message' => 'Website Link Inserted Successfully',
+    		'alert-type' => 'success'
+    	);
+
+    	return redirect()->route('all.website')->with($notification);
+
+    }
+
+    public function EditWebsite($id){
+    	$website = DB::table('websites')->where('id', $id)->first();
+    	return view('backend.website.edit', compact('website'));
+    }
+
+    public function UpdateWebsite(Request $request, $id){
+
+    	$validated = $request->validate([
+
+        'website_name' => 'required',
+        'website_link' => 'required',
+
+    	]);
+
+    	$data = array(); // This is Query Builder
+    	$data['website_name'] = $request->website_name;
+    	$data['website_link'] = $request->website_link;
+    	DB::table('websites')->where('id', $id)->update($data);
+
+    	$notification = array(
+
+    		'message' => 'Website Link Updated Successfully',
+    		'alert-type' => 'success'
+    	);
+
+    	return redirect()->route('all.website')->with($notification);
+
+    }
+
+    public function DeleteWebsite($id){
+
+    	DB::table('websites')->where('id', $id)->delete();
+
+    	$notification = array(
+
+    		'message' => 'Website Deleted Successfully',
+    		'alert-type' => 'success'
+    	);
+
+    	return redirect()->route('all.website')->with($notification);
+    }
+
+
 }
