@@ -61,4 +61,54 @@ class SettingController extends Controller
 
     	return redirect()->route('seo.setting')->with($notification);
     }
+
+    public function LiveTvSetting(){
+    	$livetv = DB::table('livetvs')->first();
+    	return view('backend.setting.livetv', compact('livetv'));
+    }
+
+    public function UpdateLiveTv(Request $request, $id){
+
+    	$data = array(); // This is Query Builder
+    	$data['embed_code'] = $request->embed_code;
+
+    	DB::table('livetvs')->where('id', $id)->update($data);
+
+    	$notification = array(
+
+    		'message' => 'Social Settings Updated Successfully',
+    		'alert-type' => 'success'
+    	);
+
+    	return redirect()->route('livetv.setting')->with($notification);
+
+    }
+
+    public function ActiveLiveTv(Request $request, $id){
+
+    DB::table('livetvs')->where('id',$id)->update(['status'=>1]);
+
+    $notification = array(
+
+    		'message' => 'LiveTV Active',
+    		'alert-type' => 'success'
+    	);
+
+    return redirect()->back()->with($notification);
+
+    }
+
+    public function DeactiveLiveTv(Request $request, $id){
+
+    DB::table('livetvs')->where('id',$id)->update(['status'=>0]);
+
+    $notification = array(
+
+    		'message' => 'LiveTV Deactivated',
+    		'alert-type' => 'error'
+    	);
+
+    return redirect()->back()->with($notification);
+
+    }
 }

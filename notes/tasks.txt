@@ -5,3 +5,8 @@
 5. Some id fields instead of integer are string, try to change those?
 6. Next page in categories(in everywhere probably) starts from 1.
 7. When a Post is created it says 19 hours ago ?
+
+
+
+- I am skipping folder 11 - 3rd video, it has functionalities that are already in the site and it's prayer time 
+Maybe do it later not with prayer time, but with something else?

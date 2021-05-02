@@ -123,3 +123,14 @@ Route::post('update/social/setting/{id}', [SettingController::class, 'UpdateSoci
 Route::get('/seo/setting', [SettingController::class, 'SeoSetting'])->name('seo.setting');
 
 Route::post('update/seo/setting/{id}', [SettingController::class, 'UpdateSeos'])->name('update.seos');
+
+// LiveTV Settings
+
+Route::get('/livetv/setting', [SettingController::class, 'LiveTvSetting'])->name('livetv.setting');
+
+Route::post('update/livetv/setting/{id}', [SettingController::class, 'UpdateLiveTv'])->name('update.livetv');
+
+Route::get('livetv/active/{id}', [SettingController::class, 'ActiveLiveTv'])->name('livetv.active');
+
+Route::get('livetv/deactive/{id}', [SettingController::class, 'DeactiveLiveTv'])->name('livetv.deactive');
+

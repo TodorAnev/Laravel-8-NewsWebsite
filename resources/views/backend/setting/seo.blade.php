@@ -59,12 +59,12 @@
 
   <div class="form-group">
       <label for="exampleTextarea1">Meta Description</label>
-      <textarea class="form-control" name="meta_description" id="summernote">{{ $seo->meta_description }}</textarea>
+      <textarea class="form-control" name="meta_description">{{ $seo->meta_description }}</textarea>
   </div>
 
   <div class="form-group">
       <label for="exampleTextarea1">Google analytics</label>
-      <textarea class="form-control" name="google_analytics" id="summernote1">{{ $seo->google_analytics }}</textarea>
+      <textarea class="form-control" name="google_analytics">{{ $seo->google_analytics }}</textarea>
   </div>
 
   <div class="form-group">
@@ -77,7 +77,7 @@
 
   <div class="form-group">
       <label for="exampleTextarea1">Alexa analytics</label>
-      <textarea class="form-control" name="alexa_analytics" id="summernote2">{{ $seo->alexa_analytics }}</textarea>
+      <textarea class="form-control" name="alexa_analytics">{{ $seo->alexa_analytics }}</textarea>
   </div>
 
   <button type="submit" class="btn btn-primary mr-2">Submit</button>
