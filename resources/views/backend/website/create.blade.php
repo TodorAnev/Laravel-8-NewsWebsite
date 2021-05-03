@@ -27,7 +27,7 @@
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Add Category</h4>
+        <h4 class="card-title">Add Website Link</h4>
 
 
 <form class="forms-sample" method="POST" action="{{ route('store.website') }}">
