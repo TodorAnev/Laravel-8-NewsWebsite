@@ -2,8 +2,6 @@
 
 @section('admin')
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <div class="row">
   <div class="col-12 grid-margin stretch-card">
     <div class="card corona-gradient-card">
@@ -29,32 +27,47 @@
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Insert Photo</h4>
-      <form class="forms-sample" method="POST" action="{{ route('store.photo') }}" enctype="multipart/form-data">
+      <h4 class="card-title">Edit Post</h4>
+      <form class="forms-sample" method="POST" action="{{ route('update.video', $video->id) }}" enctype="multipart/form-data">
         @csrf
+
         <div class="form-group">
           <div class="form-group">
-            <label for="exampleInputName1">Photo Title</label>
-            <input type="text" class="form-control" id="exampleInputName1" name="title">
+            <label for="exampleInputName1">Video Title</label>
+            <input type="text" class="form-control" id="exampleInputName1" name="title" value="{{ $video->title }}">
           </div>
         </div>
 
-            
         <div class="form-group">
-            <label for="exampleFormControlFile1">Image Upload</label>
-              <input type="file" name="photo" class="form-control-file" id="exampleFormControlFile1">
+          <div class="form-group">
+            <label for="exampleInputName1">Video Embed Code</label>
+            <input type="text" class="form-control" id="exampleInputName1" name="embed_code" value="{{ $video->embed_code }}">
+          </div>
         </div>
-
 
           <div class="form-group">
             <label for="exampleInputName1">Photo Type</label>
             <select class="form-control" name="type">
-            <option value="1"> Big Photo </option>
-            <option value="0"> Small Photo </option>
+              
+            <option value="1" 
+
+            <?php if ($video->type == 1) {
+                echo "selected";
+              } ?>
+
+            > Big Video </option>
+
+            <option value="0"
+
+            <?php if ($video->type == 0) {
+                echo "selected";
+            } ?>
+
+            > Small Video </option>
           </select>
           </div>
 
-        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button type="submit" class="btn btn-primary mr-2">Update</button>
 
       </form>
     </div>
