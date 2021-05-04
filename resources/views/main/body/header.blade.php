@@ -1,6 +1,7 @@
 @php
 
 	$category = DB::table('categories')->orderBy('id', 'asc')->get();
+	$social = DB::table('socials')->first();
 
 
 @endphp
@@ -31,7 +32,15 @@
 				<!-- Collection of nav links and other content for toggling -->
 				<div id="navbarCollapse" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#">HOME</a></li>
+						<li><a href="#">
+							
+					@if(session()->get('lang') == 'bulgarian')
+					НАЧАЛО
+					@else
+					HOME
+					@endif
+
+						</a></li>
 
 			@foreach($category as $row)
 
@@ -41,10 +50,30 @@
 
 			@endphp
 	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{  $row->category_en }}<b class="caret"></b></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+			@if(session()->get('lang') == 'bulgarian')
+			{{ $row->category_bg }}
+			@else
+			{{ $row->category_en }}
+			@endif
+
+			<b class="caret"></b></a>
+
+
+
+
 	<ul class="dropdown-menu">
 		@foreach($subcategory as $row)
-		<li><a href="#">{{  $row->subcategory_en }}</a></li>
+		<li><a href="#">
+			
+			@if(session()->get('lang') == 'bulgarian')
+			{{ $row->subcategory_bg }}
+			@else
+			{{ $row->subcategory_en }}
+			@endif
+
+		</a></li>
 		@endforeach
 	</ul>
 	</li>
@@ -60,7 +89,15 @@
 	<div class="header-icon">
 		<ul>
 			<!-- version-start -->
-			<li class="version"><a href="#"><B>HINDI</B></a></li>&nbsp;&nbsp;&nbsp;
+
+
+			@if(session()->get('lang') == 'bulgarian')
+			<li class="version"><a href="{{ route('lang.english') }}"><B>English</B></a></li>&nbsp;&nbsp;&nbsp;
+			@else
+			<li class="version"><a href="{{ route('lang.bulgarian') }}"><B>Bulgarian</B></a></li>&nbsp;&nbsp;&nbsp;
+			@endif
+
+
 			<!-- login-start -->
 						
 <!-- search-start -->
@@ -97,10 +134,10 @@
 				<div class="dropdown">
 				  <button class="dropbtn-02"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
 				  <div class="dropdown-content">
-					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
-					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
-					<a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a>
-					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+					<a href="{{ $social->facebook }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook </a>
+					<a href="{{ $social->twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+					<a href="{{ $social->youtube }}" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a>
+					<a href="{{ $social->instagram }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
 				  </div>
 				</div>
 			</li>
@@ -141,16 +178,60 @@
     </section><!-- /.date-close -->  
 
 	<!-- notice-start -->
-	 
+	 @php
+
+	 $headline = DB::table('posts')->where('posts.headline', 1)->limit(3)->get();
+	 $notice = DB::table('notices')->first();
+
+	 @endphp
     <section>
     	<div class="container-fluid">
 			<div class="row scroll">
 				<div class="col-md-2 col-sm-3 scroll_01 ">
-					Breaking News :
+						@if(session()->get('lang') == 'bulgarian')
+						Извънредни новини:
+						@else
+						Breaking News:
+						@endif
 				</div>
 				<div class="col-md-10 col-sm-9 scroll_02">
-					<marquee>wellcome to our website...</marquee>
+					<marquee>
+						@foreach($headline as $row)
+
+						@if(session()->get('lang') == 'bulgarian')
+						* {{ $row->title_bg }}
+						@else
+						* {{ $row->title_en }}
+						@endif
+
+						@endforeach
+					
+
+					</marquee>
 				</div>
 			</div>
     	</div>
-    </section>     
+    </section>   
+
+    @if($notice->status == 1)
+
+    <section>
+    	<div class="container-fluid">
+			<div class="row scroll">
+				<div class="col-md-2 col-sm-3 scroll_01 " style="background-color: green;">
+						@if(session()->get('lang') == 'bulgarian')
+						Известия:
+						@else
+						Notice:
+						@endif
+				</div>
+				<div class="col-md-10 col-sm-9 scroll_02" style="background-color: red;">
+					<marquee>
+						{{ $notice->notice }}
+					</marquee>
+				</div>
+			</div>
+    	</div>
+    </section> 
+
+    @endif 

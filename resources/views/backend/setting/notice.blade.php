@@ -53,7 +53,7 @@
 
   <div class="form-group">
       <label for="exampleTextarea1" class="mt-4">Notice Text</label>
-      <textarea class="form-control" name="notice" id="summernote">{{ $notice->notice }}</textarea>
+      <input type="text" class="form-control" name="notice" value="{{ $notice->notice }}">
   </div>
 
   <button type="submit" class="btn btn-primary mr-2">Submit</button>

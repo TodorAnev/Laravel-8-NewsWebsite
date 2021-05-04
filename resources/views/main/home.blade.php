@@ -138,15 +138,36 @@
 						</div>
 					</div><!-- /.add-close -->	
 					
+
+					@php 
+
+					$livetv = DB::table('livetvs')->first();
+
+					@endphp
+
+					@if($livetv->status == 1)
+
 					<!-- youtube-live-start -->	
-					<div class="cetagory-title-03">Live TV</div>
+					<div class="cetagory-title-03">
+						@if(session()->get('lang') == 'bulgarian')
+						Телевизия на живо
+						@else
+						Live TV
+						@endif
+					</div>
 					<div class="photo">
 						<div class="embed-responsive embed-responsive-16by9 embed-responsive-item" style="margin-bottom:5px;">
-			 
-<iframe width="729" height="410" src="https://www.youtube.com/embed/S81Kte7X9uk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			 			
+			 			{!! $livetv->embed_code !!}
+
+
 						</div>
 					</div><!-- /.youtube-live-close -->	
 					
+					@endif
+
+
+
 					<!-- facebook-page-start -->
 					<div class="cetagory-title-03">Facebook </div>
 					<div class="fb-root">
@@ -475,10 +496,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- Namaj Times -->
-					<div class="cetagory-title-03">Prayer Time </div>
-					Prayer Times count option here
-					<!-- Namaj Times -->
 					<div class="cetagory-title-03">Old News  </div>
 					<form action="" method="post">
 						<div class="old-news-date">
@@ -491,32 +508,29 @@
 				   </form>
 				   <!-- news -->
 				   <br><br><br><br><br>
-				   <div class="cetagory-title-04"> Important Website</div>
+				   <div class="cetagory-title-04"> 
+
+				   		@if(session()->get('lang') == 'bulgarian')
+						Важни сайтове
+						@else
+						Important Websites
+						@endif
+
+				   </div>
 				   <div class="">
+
+				   	@php
+
+				   	$website = DB::table('websites')->get();
+
+				   	@endphp
+
+				   	@foreach($website as $row)
 				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
+				   		<h4 class="heading-03"><a href="{{ $row->website_link }}"><i class="fa fa-check" aria-hidden="true"></i> {{ $row->website_name }}  </a> </h4>
 				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved</a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved </a> </h4>
-				   	</div>
+				   	@endforeach
+				  
 				   </div>
 
 				</div>

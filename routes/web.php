@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Frontend\ExtraController;
 
 
 
@@ -186,3 +187,16 @@ Route::get('/edit/video/{id}', [GalleryController::class, 'EditVideo'])->name('e
 Route::post('/update/video/{id}', [GalleryController::class, 'UpdateVideo'])->name('update.video');
 
 Route::get('/delete/video/{id}', [GalleryController::class, 'DeleteVideo'])->name('delete.video');
+
+
+
+
+							// Frontend
+
+// Multi Language Routes
+
+Route::get('/lang/bulgarian', [ExtraController::class, 'Bulgarian'])->name('lang.bulgarian');
+
+Route::get('/lang/english', [ExtraController::class, 'English'])->name('lang.english');
+
+
