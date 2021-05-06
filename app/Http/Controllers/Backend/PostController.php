@@ -51,7 +51,6 @@ class PostController extends Controller
     	$data['tags_bg'] = $request->tags_bg;
     	$data['details_en'] = $request->details_en;
     	$data['details_bg'] = $request->details_bg;
-    	$data['title_bg'] = $request->title_bg;
     	$data['headline'] = $request->headline;
     	$data['first_section_thumbnail'] = $request->first_section_thumbnail;
     	$data['first_section'] = $request->first_section;
@@ -111,15 +110,6 @@ class PostController extends Controller
 
   public function UpdatePost(Request $request, $id){
 
-  	$validated = $request->validate([
-
-        'category_id' => 'required',
-        'district_id' => 'required',
-        'title_en' => 'required',
-        'title_bg' => 'required',
-        'image' => 'required',
-
-    ]);
 
     	$data = array(); // This is Query Builder
     	$data['title_en'] = $request->title_en;
@@ -133,49 +123,39 @@ class PostController extends Controller
     	$data['tags_bg'] = $request->tags_bg;
     	$data['details_en'] = $request->details_en;
     	$data['details_bg'] = $request->details_bg;
-    	$data['title_bg'] = $request->title_bg;
     	$data['headline'] = $request->headline;
     	$data['first_section_thumbnail'] = $request->first_section_thumbnail;
     	$data['first_section'] = $request->first_section;
     	$data['bigthumbnail'] = $request->bigthumbnail;
 
-    	$oldimage = $request->oldimage;
+      $oldimage = $request->oldimage;
+      $image = $request->image;
+      if ($image) {
+        $image_one = uniqid().'.'.$image->getClientOriginalExtension(); 
+        Image::make($image)->resize(500,300)->save('image/postimg/'.$image_one);
+        $data['image'] = 'image/postimg/'.$image_one;
+        // image/postimg/343434.png
+        DB::table('posts')->where('id',$id)->update($data);
+        unlink($oldimage);
 
-    	$image = $request->image;
-    		if ($image) {
-   	$image_one = uniqid() . '.' . $image->getClientOriginalExtension(); 
-    		/*$image_one = 123123123.jpg or 123123123.png*/ 
-    		Image::make($image)->resize(500,300)->save('image/postimg/' . $image_one);
+        $notification = array(
+        'message' => 'Post Updated Successfully',
+        'alert-type' => 'success'
+       );
 
-    	$data['image'] = 'image/postimg/' . $image_one;
-    		 // image/postimg/343434343.png
-
-    	DB::table('posts')->where('id', $id)->update($data);
-    	unlink($oldimage);
-
-    	$notification = array(
-
-    		'message' => 'Post Updated Successfully',
-    		'alert-type' => 'success'
-    	);
-
-    	return redirect()->route('all.post')->with($notification);
-    } else {
-	
-    	$data['image'] = $oldimage;
-    	DB::table('posts')->where('id', $id)->update($data);
-
-    	$notification = array(
-
-    		'message' => 'Post Updated Successfully',
-    		'alert-type' => 'success'
-    	);
-
-    	return redirect()->route('all.post')->with($notification);
-
-    }
-
-  } // End Update Method 
+       return Redirect()->route('all.post')->with($notification);
+      
+      }else{
+        $data['image'] = $oldimage;
+        DB::table('posts')->where('id',$id)->update($data);
+         
+        $notification = array(
+        'message' => 'Post Updated Successfully',
+        'alert-type' => 'success'
+       );
+         return Redirect()->route('all.post')->with($notification);
+      } // End Condition
+  }  // End Method
 
   public function DeletePost($id){
 

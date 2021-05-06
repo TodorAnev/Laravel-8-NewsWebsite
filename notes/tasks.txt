@@ -5,6 +5,7 @@
 5. Some id fields instead of integer are string, try to change those?
 6. Next page in categories(in everywhere probably) starts from 1.
 7. When a Post is created it says 19 hours ago ?
+8. Video Gallery copies the same videos?
 
 
 

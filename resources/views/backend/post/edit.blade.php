@@ -46,7 +46,7 @@
 
           <div class="form-group col-md-6">
             <label for="exampleInputName1">Title Bulgarian</label>
-            <input type="text" class="form-control" id="exampleInputName1" name="title_bg" value="{{ $post->title_en }}">
+            <input type="text" class="form-control" id="exampleInputName1" name="title_bg" value="{{ $post->title_bg }}">
           </div>
         </div> <!-- End row -->
 
@@ -116,18 +116,20 @@
           </div>
         </div> <!-- End row -->
 
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="exampleInputName1">News Image Upload</label>
-            <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
-          </div>
+<div class="row">
 
-          <div class="form-group col-md-6">
-            <label for="exampleInputName1">Old Image</label>
-            <img src="{{ URL::to($post->image) }}" style="width:70px; height: 50px;" alt="Old Image">
-            <input type="hidden" name="oldimage" value="{{ $post->image }}">
-          </div>
-        </div> <!-- End row -->
+    <div class="form-group col-md-6">
+      <label for="exampleInputName1">News Image Upload</label>
+      <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+
+     <div class="form-group col-md-6">
+      <label for="exampleInputName1">Old Image</label>
+      <img src="{{ URL::to($post->image)  }}" style="width: 70px; height: 50px;">
+      <input type="hidden" name="oldimage" value="{{ $post->image }}">
+    </div>
+
+  </div> <!-- End Row  --> 
 
         <div class="row">
           <div class="form-group col-md-6">
