@@ -64,7 +64,18 @@ $firstsection = DB::table('posts')->where('first_section', 1)->orderBy('id', 'de
 	<div class="row">
 		<div class="col-md-12 col-sm-12">
 
-			<div class="add"><img src="{{ asset('frontend/assets/img/test.jpg') }}" alt="" /></div>
+@php
+	$horizontal = DB::table('ads')->where('type',2)->skip(1)->first();
+@endphp
+
+			<div class="add">
+				@if($horizontal == NULL)
+						@else
+						<a href="{{ $horizontal->link }}" target="_blank">
+							<img src="{{ asset($horizontal->ads) }}" alt="" />
+						</a>
+						@endif
+			</div>
 		</div>
 	</div><!-- /.add-close -->	
 	
@@ -213,8 +224,18 @@ $secondcatpostsmall = DB::table('posts')->where('category_id', $secondcategory->
 					<!-- add-start -->	
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
+@php
+	$vertical = DB::table('ads')->where('type',1)->first();
+@endphp
 
-							<div class="sidebar-add"><img src="{{ asset('frontend/assets/img/add_01.jpg') }}" alt="" /></div>
+							<div class="sidebar-add">
+						@if($vertical == NULL)
+						@else
+						<a href="{{ $vertical->link }}" target="_blank">
+							<img src="{{ asset($vertical->ads) }}" alt="" />
+						</a>
+						@endif
+							</div>
 						</div>
 					</div><!-- /.add-close -->	
 					
@@ -246,20 +267,28 @@ $secondcatpostsmall = DB::table('posts')->where('category_id', $secondcategory->
 					
 					@endif
 
-
-
 					<!-- facebook-page-start -->
-					<div class="cetagory-title-03">Facebook </div>
-					<div class="fb-root">
-						facebook page here
-					</div><!-- /.facebook-page-close -->	
+					
+					<div id="fb-root"></div>
+					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="9Usqhzl7"></script>	
+
+					<div class="fb-page" data-href="https://www.facebook.com/LaravelCommunity" data-tabs="" data-width="270" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/LaravelCommunity" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/LaravelCommunity">Laravel</a></blockquote></div>
+
+
+	@php
+	$vertical = DB::table('ads')->where('type',1)->skip(1)->first();
+	@endphp
 					
 					<!-- add-start -->	
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add">
-
-								<img src="{{ asset('frontend/assets/img/add_01.jpg') }}" alt="" />
+						<div class="sidebar-add">
+							@if($vertical == NULL)
+							@else
+							<a href="{{ $vertical->link }}" target="_blank">
+								<img src="{{ asset($vertical->ads) }}" alt="" />
+							</a>
+							@endif
 							</div>
 						</div>
 					</div><!-- /.add-close -->	
@@ -459,15 +488,34 @@ $fourthcatpostsmall = DB::table('posts')->where('category_id', $fourthcategory->
 					</div>
 				</div>
 			</div> -->
-
-
+@php
+	$horizontal = DB::table('ads')->where('type',2)->skip(2)->first();
+@endphp
+			
 			<!-- add-start -->	
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
-					<div class="add"><img src="{{ asset('frontend/assets/img/test.jpg') }}" alt="" /></div>
+					<div class="add">
+				@if($horizontal == NULL)
+						@else
+						<a href="{{ $horizontal->link }}" target="_blank">
+							<img src="{{ asset($horizontal->ads) }}" alt="" />
+						</a>
+						@endif
+					</div>
 				</div>
+@php
+	$horizontal = DB::table('ads')->where('type',2)->skip(1)->first();
+@endphp
 				<div class="col-md-6 col-sm-6">
-					<div class="add"><img src="{{ asset('frontend/assets/img/test.jpg') }}" alt="" /></div>
+					<div class="add">
+				@if($horizontal == NULL)
+						@else
+						<a href="{{ $horizontal->link }}" target="_blank">
+							<img src="{{ asset($horizontal->ads) }}" alt="" />
+						</a>
+						@endif
+					</div>
 				</div>
 			</div><!-- /.add-close -->	
 			

@@ -61,12 +61,22 @@
 			{{ $subcatposts->links() }}
 			
 			</div>
-			
+@php
+	$vertical = DB::table('ads')->where('type',1)->first();
+@endphp
+
 			<div class="col-md-3 col-sm-4">
 				<!-- add-start -->	
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('frontend/assets/img/add_01.jpg') }}" alt="" /></div>
+						<div class="sidebar-add">
+						@if($vertical == NULL)
+						@else
+						<a href="{{ $vertical->link }}" target="_blank">
+							<img src="{{ asset($vertical->ads) }}" alt="" />
+						</a>
+						@endif
+							</div>
 						</div>
 					</div><!-- /.add-close -->
 				@php
@@ -132,10 +142,21 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(8)->
 						</div>
 				</div>
 
+@php
+	$vertical = DB::table('ads')->where('type',1)->skip(1)->first();
+@endphp
+
 				<!-- add-start -->	
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('frontend/assets/img/add_01.jpg') }}" alt="" /></div>
+						<div class="sidebar-add">
+						@if($vertical == NULL)
+						@else
+						<a href="{{ $vertical->link }}" target="_blank">
+							<img src="{{ asset($vertical->ads) }}" alt="" />
+						</a>
+						@endif
+							</div>
 						</div>
 					</div><!-- /.add-close -->
 

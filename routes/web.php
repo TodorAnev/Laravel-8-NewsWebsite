@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Frontend\ExtraController;
+use App\Http\Controllers\Backend\AdsController;
 
 
 
@@ -188,7 +189,13 @@ Route::post('/update/video/{id}', [GalleryController::class, 'UpdateVideo'])->na
 
 Route::get('/delete/video/{id}', [GalleryController::class, 'DeleteVideo'])->name('delete.video');
 
+// Ads Section 
 
+Route::get('/list/ads', [AdsController::class, 'ListAds'])->name('list.ad');
+
+Route::get('/add/ads', [AdsController::class, 'AddAds'])->name('add.ads');
+
+Route::post('/store/ads', [AdsController::class, 'StoreAd'])->name('store.ad');
 
 
 							// Frontend

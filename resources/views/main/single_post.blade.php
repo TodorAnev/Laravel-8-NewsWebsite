@@ -53,13 +53,7 @@
 						
 						</div>
 						<div class="col-md-6 col-sm-6 pull-right"> 						
-<!-- 							<ul class="social-nav">
-								<li><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('#'),'facebook-share-dialog','width=626,height=436'); return false;" target="_blank" title="Facebook" rel="nofollow" class="facebook"><i class="fa fa-facebook"></i></a></li>
-								<li><a target="_blank" href="" onclick="javascript:window.open('https://twitter.com/share?text=‘#'); return false;" title="Twitter" rel="nofollow" class="twitter"><i class="fa fa-twitter"></i></a></li>
-								<li><a target="_blank" href="" onclick="window.open('https://plus.google.com/share?url=#'); return false;" title="Google plus" rel="nofollow" class="google"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#" target="_blank" title="Print" rel="nofollow" class="print"><i class="fa fa-print"></i></a></li>
-						
-							</ul> -->						   
+										   
 						</div>						
 					</div>				 
 				 </div>				
@@ -87,6 +81,12 @@
 				</div>
 				<!-- ********* -->
 
+<div class="sharethis-inline-share-buttons"></div>
+<br><br>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="HI1NMq9Z"></script>
+
+<div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="8"></div>
 @php
 
 $more = DB::table('posts')->where('category_id', $post->category_id)->orderBy('id', 'desc')->limit(6)->get();
@@ -122,11 +122,22 @@ $more = DB::table('posts')->where('category_id', $post->category_id)->orderBy('i
  
 			</div>
 
+@php
+	$vertical = DB::table('ads')->where('type',1)->first();
+@endphp
+
 			<div class="col-md-4 col-sm-4">
 				<!-- add-start -->	
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('frontend/assets/img/add_01.jpg') }}" alt="" /></div>
+							<div class="sidebar-add">
+						@if($vertical == NULL)
+						@else
+						<a href="{{ $vertical->link }}" target="_blank">
+							<img src="{{ asset($vertical->ads) }}" alt="" />
+						</a>
+						@endif
+							</div>
 						</div>
 					</div><!-- /.add-close -->
 
@@ -193,9 +204,21 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(8)->
 						</div>
 				</div>
 				<!-- add-start -->	
+
+@php
+	$vertical = DB::table('ads')->where('type',1)->skip(1)->first();
+@endphp
+
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('frontend/assets/img/add_01.jpg') }}" alt="" /></div>
+							<div class="sidebar-add">
+						@if($vertical == NULL)
+						@else
+						<a href="{{ $vertical->link }}" target="_blank">
+							<img src="{{ asset($vertical->ads) }}" alt="" />
+						</a>
+						@endif
+							</div>
 						</div>
 					</div><!-- /.add-close -->
 			</div>

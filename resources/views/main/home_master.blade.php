@@ -26,6 +26,8 @@
         <link href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}" rel="stylesheet">
         <link href="{{ asset('frontend/assets/style.css') }}" rel="stylesheet">
 
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=60993d2f30ef9700113f713e&product=inline-share-buttons" async="async"></script>
+
     </head>
     <body>
     
