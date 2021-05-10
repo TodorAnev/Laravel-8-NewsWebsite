@@ -27,7 +27,7 @@
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Edit Post</h4>
+      <h4 class="card-title">Edit Photo</h4>
       <form class="forms-sample" method="POST" action="{{ route('update.photo', $photo->id) }}" enctype="multipart/form-data">
         @csrf
 

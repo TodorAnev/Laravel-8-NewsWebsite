@@ -20,9 +20,10 @@ $firstsection = DB::table('posts')->where('first_section', 1)->orderBy('id', 'de
 						<div class="col-md-10 col-sm-10">
 							<div class="lead-news">
 
-	 <div class="service-img"><a href="#"><img src="{{ asset($firstsectionbig->image) }}" width="800px" alt="First Section BigThumbnail"></a></div>
+	 <div class="service-img"><a href="{{ URL::to('view/post/' . $firstsectionbig->id) }}"><img src="{{ asset($firstsectionbig->image) }}" width="800px" alt="First Section BigThumbnail"></a></div>
 								<div class="content">
-		 <h4 class="lead-heading-01"><a href="#">
+		 <h4 class="lead-heading-01">
+		 	<a href="{{ URL::to('view/post/' . $firstsectionbig->id) }}">
 
 		 	@if(session()->get('lang') == 'bulgarian')
 			{{ $firstsectionbig->title_bg }}
@@ -42,8 +43,8 @@ $firstsection = DB::table('posts')->where('first_section', 1)->orderBy('id', 'de
 
 								<div class="col-md-3 col-sm-3">
 									<div class="top-news">
-										<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">
+										<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+										<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $row->id) }}">
 											
 								@if(session()->get('lang') == 'bulgarian')
 								{{ Str::limit($row->title_bg, 50) }}
@@ -104,8 +105,8 @@ $firstcatpostsmall = DB::table('posts')->where('category_id', $firstcategory->id
 
 			<div class="col-md-6 col-sm-6">
 				<div class="top-news">
-					<a href="#"><img src="{{ asset($firstcatpostbig->image) }}" alt="Notebook"></a>
-					<h4 class="heading-02"><a href="#">
+					<a href="{{ URL::to('view/post/' . $firstcatpostbig->id) }}"><img src="{{ asset($firstcatpostbig->image) }}" alt="Notebook"></a>
+					<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $firstcatpostbig->id) }}">
 						
 						@if(session()->get('lang') == 'bulgarian')
 						{{ $firstcatpostbig->title_bg }}
@@ -121,8 +122,8 @@ $firstcatpostsmall = DB::table('posts')->where('category_id', $firstcategory->id
 			<div class="col-md-6 col-sm-6">
 				@foreach($firstcatpostsmall as $row)
 				<div class="image-title">
-					<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
-					<h4 class="heading-03"><a href="#">
+					<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+					<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 						@if(session()->get('lang') == 'bulgarian')
 						{{$row->title_bg}}
 						@else
@@ -174,8 +175,8 @@ $secondcatpostsmall = DB::table('posts')->where('category_id', $secondcategory->
 
 			<div class="col-md-6 col-sm-6">
 				<div class="top-news">
-					<a href="#"><img src="{{ asset($secondcatpostbig->image) }}" alt="Notebook"></a>
-					<h4 class="heading-02"><a href="#">
+					<a href="{{ URL::to('view/post/' . $secondcatpostbig->id) }}"><img src="{{ asset($secondcatpostbig->image) }}" alt="Notebook"></a>
+					<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $secondcatpostbig->id) }}">
 						
 						@if(session()->get('lang') == 'bulgarian')
 						{{ $secondcatpostbig->title_bg }}
@@ -191,8 +192,8 @@ $secondcatpostsmall = DB::table('posts')->where('category_id', $secondcategory->
 			<div class="col-md-6 col-sm-6">
 				@foreach($secondcatpostsmall as $row)
 				<div class="image-title">
-					<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
-					<h4 class="heading-03"><a href="#">
+					<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+					<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 						@if(session()->get('lang') == 'bulgarian')
 						{{$row->title_bg}}
 						@else
@@ -307,8 +308,8 @@ $thirdcatpostsmall = DB::table('posts')->where('category_id', $thirdcategory->id
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
-									<a href="#"><img src="{{ asset($thirdcatpostbig->image) }}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">@if(session()->get('lang') == 'bulgarian')
+									<a href="{{ URL::to('view/post/' . $thirdcatpostbig->id) }}"><img src="{{ asset($thirdcatpostbig->image) }}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $thirdcatpostbig->id) }}">@if(session()->get('lang') == 'bulgarian')
 									{{ $thirdcatpostbig->title_bg }}
 									@else
 									{{ $thirdcatpostbig->title_en }}
@@ -320,8 +321,8 @@ $thirdcatpostsmall = DB::table('posts')->where('category_id', $thirdcategory->id
 							<div class="col-md-6 col-sm-6">
 							@foreach($thirdcatpostsmall as $row)
 							<div class="image-title">
-								<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
-								<h4 class="heading-03"><a href="#">
+								<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+								<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 									@if(session()->get('lang') == 'bulgarian')
 									{{$row->title_bg}}
 									@else
@@ -372,8 +373,8 @@ $fourthcatpostsmall = DB::table('posts')->where('category_id', $fourthcategory->
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
-									<a href="#"><img src="{{ asset($fourthcatpostbig->image) }}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">@if(session()->get('lang') == 'bulgarian')
+									<a href="{{ URL::to('view/post/' . $fourthcatpostbig->id) }}"><img src="{{ asset($fourthcatpostbig->image) }}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $fourthcatpostbig->id) }}">@if(session()->get('lang') == 'bulgarian')
 									{{ $fourthcatpostbig->title_bg }}
 									@else
 									{{ $fourthcatpostbig->title_en }}
@@ -385,8 +386,8 @@ $fourthcatpostsmall = DB::table('posts')->where('category_id', $fourthcategory->
 							<div class="col-md-6 col-sm-6">
 							@foreach($fourthcatpostsmall as $row)
 							<div class="image-title">
-								<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
-								<h4 class="heading-03"><a href="#">
+								<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+								<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 									@if(session()->get('lang') == 'bulgarian')
 									{{$row->title_bg}}
 									@else
@@ -458,6 +459,8 @@ $fourthcatpostsmall = DB::table('posts')->where('category_id', $fourthcategory->
 					</div>
 				</div>
 			</div> -->
+
+
 			<!-- add-start -->	
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
@@ -515,8 +518,8 @@ $fifthcatpostsmallskip = DB::table('posts')->skip(3)->where('category_id', $fift
 
 						<div class="col-md-4 col-sm-4">
 							<div class="top-news">
-									<a href="#"><img src="{{ asset($fifthcatpostbig->image) }}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">@if(session()->get('lang') == 'bulgarian')
+									<a href="{{ URL::to('view/post/' . $fifthcatpostbig->id) }}"><img src="{{ asset($fifthcatpostbig->image) }}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $fifthcatpostbig->id) }}">@if(session()->get('lang') == 'bulgarian')
 									{{ $fifthcatpostbig->title_bg }}
 									@else
 									{{ $fifthcatpostbig->title_en }}
@@ -530,8 +533,8 @@ $fifthcatpostsmallskip = DB::table('posts')->skip(3)->where('category_id', $fift
 						<div class="col-md-4 col-sm-4">
 							@foreach($fifthcatpostsmall as $row)
 							<div class="image-title">
-								<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
-								<h4 class="heading-03"><a href="#">
+								<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+								<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 									@if(session()->get('lang') == 'bulgarian')
 									{{$row->title_bg}}
 									@else
@@ -544,8 +547,8 @@ $fifthcatpostsmallskip = DB::table('posts')->skip(3)->where('category_id', $fift
 						<div class="col-md-4 col-sm-4">
 							@foreach($fifthcatpostsmallskip as $row)
 							<div class="image-title">
-								<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
-								<h4 class="heading-03"><a href="#">
+								<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+								<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 									@if(session()->get('lang') == 'bulgarian')
 									{{$row->title_bg}}
 									@else
@@ -602,7 +605,40 @@ $fifthcatpostsmallskip = DB::table('posts')->skip(3)->where('category_id', $fift
 						</div>
 					</div><!-- /.add-close -->	
 
+<br><br>
+			<div class="row">
 
+@php
+
+$district = DB::table('districts')->get();
+
+@endphp
+
+				<div class="cetagory-title-02"><a href="#">Search By District<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i></span></a></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+				<form action="{{ route('searchby.districts') }}" method="GET">
+					@csrf
+						<div class="row">
+							<div class="col-lg-4">
+		<select class="form-control" id="exampleSelectGender" name="district_id">
+            <option disabled="" selected="">Select District</option>
+            @foreach($district as $row)
+            <option value="{{ $row->id }}">{{ $row->district_en }}</option>
+            @endforeach
+         </select>
+							</div>
+							<div class="col-lg-4">
+		<select class="form-control" id="subdistrict_id" name="subdistrict_id">
+            <option disabled="" selected="">Select SubDistrict</option>
+         </select>
+							</div>
+							<div class="col-lg-4">
+								<button class="btn btn-success btn-block">Search</button>
+							</div>
+						</div>
+				</form>
+			</div>
+			<br><br>
 				</div>
 
 @php
@@ -879,5 +915,33 @@ $videosmall = DB::table('videos')->where('type',0)->orderBy('id', 'desc')->limit
 			</div>
 		</div>
 	</section><!-- /.gallery-section-close -->
+
+
+
+<!-- This AJAX is for Category -->
+<script type="text/javascript">
+   $(document).ready(function() {
+         $('select[name="district_id"]').on('change', function(){
+             var district_id = $(this).val();
+             if(district_id) {
+                 $.ajax({
+         url: "{{  url('/get/subdistrict/frontend') }}/"+district_id,
+         type:"GET",
+         dataType:"json",
+                     success:function(data) {
+                        $("#subdistrict_id").empty();
+$.each(data,function(key,value){
+    $("#subdistrict_id").append('<option value="'+value.id+'">'+value.subdistrict_en+'</option>');
+                              });
+
+                     },
+                    
+                 });
+             } else {
+                 alert('danger');
+             }
+         });
+     });
+</script>
 
 @endsection

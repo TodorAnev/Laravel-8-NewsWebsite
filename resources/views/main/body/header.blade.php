@@ -13,7 +13,7 @@
 				<div class="col-xs-6 col-md-2 col-sm-4">
 	<div class="header_logo">
 
-		<a href=""><img src="{{ asset('frontend/assets/img/demo_logo.png') }}"></a> 
+		<a href="{{ URL::to('/') }}"><img src="{{ asset('frontend/assets/img/demo_logo.png') }}"></a> 
 	</div>
 </div>              
 <div class="col-xs-6 col-md-8 col-sm-8">
@@ -32,7 +32,7 @@
 				<!-- Collection of nav links and other content for toggling -->
 				<div id="navbarCollapse" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#">
+						<li><a href="{{ URL::to('/') }}">
 							
 					@if(session()->get('lang') == 'bulgarian')
 					НАЧАЛО
@@ -50,7 +50,7 @@
 
 			@endphp
 	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<a href="{{ URL::to('catpost/'. $row->id . '/' . $row->category_en) }}">
 
 			@if(session()->get('lang') == 'bulgarian')
 			{{ $row->category_bg }}
@@ -65,7 +65,7 @@
 
 	<ul class="dropdown-menu">
 		@foreach($subcategory as $row)
-		<li><a href="#">
+		<li><a href="{{ URL::to('subcatpost/'. $row->id . '/' . $row->subcategory_en) }}">
 			
 			@if(session()->get('lang') == 'bulgarian')
 			{{ $row->subcategory_bg }}

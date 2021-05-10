@@ -199,4 +199,18 @@ Route::get('/lang/bulgarian', [ExtraController::class, 'Bulgarian'])->name('lang
 
 Route::get('/lang/english', [ExtraController::class, 'English'])->name('lang.english');
 
+// Single Post Page
 
+Route::get('/view/post/{id}', [ExtraController::class, 'SinglePost']);
+
+// Post Category and SubCategory
+
+Route::get('/catpost/{id}/{category_en}', [ExtraController::class, 'CatPost']);
+
+Route::get('/subcatpost/{id}/{subcategory_en}', [ExtraController::class, 'SubCatPost']);
+
+// Search District In Home page
+
+Route::get('/get/subdistrict/frontend/{district_id}', [ExtraController::class, 'GetSubDist']);
+
+Route::get('/search/district', [ExtraController::class, 'SearchDistrict'])->name('searchby.districts');

@@ -6,6 +6,10 @@
 6. Next page in categories(in everywhere probably) starts from 1.
 7. When a Post is created it says 19 hours ago ?
 8. Video Gallery copies the same videos?
+9. Add gallery title to have bg
+10. Add link to latest and hot news in side bar(home page)
+11. Join category table and display the category name in category all page and subcategory all page - can it be done with one db query?
+12.Fix When there is no posts in subcategory the ad and the other thing(and add links to the other thing!)
 
 
 
