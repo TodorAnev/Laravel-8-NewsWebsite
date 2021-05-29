@@ -10,6 +10,8 @@
 10. Add link to latest and hot news in side bar(home page)
 11. Join category table and display the category name in category all page and subcategory all page - can it be done with one db query?
 12.Fix When there is no posts in subcategory the ad and the other thing(and add links to the other thing!)
+13.Fix breadcrums
+14. Fix footer
 
 
 

@@ -87,6 +87,7 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="HI1NMq9Z"></script>
 
 <div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="8"></div>
+<!-- Request::url() this way we see different types of comments on each page -->
 @php
 
 $more = DB::table('posts')->where('category_id', $post->category_id)->orderBy('id', 'desc')->limit(6)->get();
@@ -105,7 +106,7 @@ $more = DB::table('posts')->where('category_id', $post->category_id)->orderBy('i
 				@foreach($more as $row)
 					<div class="col-md-4 col-sm-4">
 						<div class="top-news sng-border-btm">
-							<a href="#"><img src="{{ asset($row->image) }}" style="height: 200px;"></a>
+							<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" style="height: 200px;"></a>
 							<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $row->id) }}">
 								@if(session()->get('lang') == 'bulgarian')
 								{{ $row->title_bg }}

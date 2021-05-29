@@ -11,7 +11,11 @@
 				<div class="single_info">
 					<span>
 						<a href=""><i class="fa fa-home" aria-hidden="true"></i> 
-							Category
+					@if(session()->get('lang') == 'bulgarian')
+					Категория
+					@else
+					Category
+					@endif
 					</span>				    
 				</div>
 			</div>
@@ -21,7 +25,7 @@
 					<div class="row">
 						<div class="col-md-4 col-sm-5">
 							<div class="archive_img_again">
-								<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+								<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
 							</div>
 						</div>
 						<div class="col-md-8 col-sm-7">

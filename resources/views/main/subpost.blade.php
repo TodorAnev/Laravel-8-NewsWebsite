@@ -12,7 +12,11 @@
 				<div class="single_info">
 					<span>
 						<a href="#"><i class="fa fa-home" aria-hidden="true"></i> 
-							SubCategory
+					@if(session()->get('lang') == 'bulgarian')
+					Подкатегория
+					@else
+					Subcategory
+					@endif
 					</span>	
 
 				</div>
