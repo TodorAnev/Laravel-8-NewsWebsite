@@ -662,14 +662,25 @@ $district = DB::table('districts')->get();
 
 @endphp
 
-				<div class="cetagory-title-02"><a href="#">Search By District<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i></span></a></div>
+				<div class="cetagory-title-02"><a href="#">			@if(session()->get('lang') == 'bulgarian')
+					Търсене според област:
+					@else
+					Search by District:
+					@endif
+					<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i></span></a></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 				<form action="{{ route('searchby.districts') }}" method="GET">
 					@csrf
 						<div class="row">
 							<div class="col-lg-4">
 		<select class="form-control" id="exampleSelectGender" name="district_id">
-            <option disabled="" selected="">Select District</option>
+            <option disabled="" selected="">
+            		@if(session()->get('lang') == 'bulgarian')
+					Изберете област:
+					@else
+					Select District:
+					@endif
+			</option>
             @foreach($district as $row)
             <option value="{{ $row->id }}">{{ $row->district_en }}</option>
             @endforeach
@@ -677,11 +688,23 @@ $district = DB::table('districts')->get();
 							</div>
 							<div class="col-lg-4">
 		<select class="form-control" id="subdistrict_id" name="subdistrict_id">
-            <option disabled="" selected="">Select SubDistrict</option>
+            <option disabled="" selected="">
+            	@if(session()->get('lang') == 'bulgarian')
+				Изберете подобласт:
+				@else
+				Select SubDistrict:
+				@endif
+            </option>
          </select>
 							</div>
 							<div class="col-lg-4">
-								<button class="btn btn-success btn-block">Search</button>
+								<button class="btn btn-success btn-block">
+				@if(session()->get('lang') == 'bulgarian')
+				Търсене:
+				@else
+				Search:
+				@endif
+								</button>
 							</div>
 						</div>
 				</form>
@@ -752,7 +775,7 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(5)->
 							</div>
 						</div>
 					</div>
-					<div class="cetagory-title-03">Old News  </div>
+<!-- 					<div class="cetagory-title-03">Old News  </div>
 					<form action="" method="post">
 						<div class="old-news-date">
 						   <input type="text" name="from" placeholder="From Date" required="">
@@ -761,7 +784,7 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(5)->
 						<div class="old-date-button">
 							<input type="submit" value="search ">
 						</div>
-				   </form>
+				   </form> -->
 				   <!-- news -->
 				   <br><br><br><br><br>
 				   <div class="cetagory-title-04"> 

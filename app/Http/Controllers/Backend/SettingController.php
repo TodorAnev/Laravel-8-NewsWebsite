@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Image;
 
 class SettingController extends Controller
 {
@@ -247,5 +248,52 @@ class SettingController extends Controller
     	return redirect()->route('all.website')->with($notification);
     }
 
+    // MainWeb Settings
+
+    public function MainWebSetting(){
+
+        $websitesetting = DB::table('websitesettings')->first();
+
+        return view('backend.setting.website', compact('websitesetting'));
+
+    }
+
+    public function UpdateWeb(Request $request, $id){
+
+        $data = array(); // This is Query Builder
+        $data['address'] = $request->address;
+        $data['phone_en'] = $request->phone_en;
+        $data['phone_bg'] = $request->phone_bg;
+        $data['email'] = $request->email;
+       
+      $oldimage = $request->oldlogo;
+      $image = $request->logo;
+      if ($image) {
+        $image_one = uniqid().'.'.$image->getClientOriginalExtension(); 
+        Image::make($image)->resize(320,130)->save('image/logo/'.$image_one);
+        $data['logo'] = 'image/logo/'.$image_one;
+        // image/postimg/343434.png
+        DB::table('websitesettings')->where('id',$id)->update($data);
+        unlink($oldimage);
+
+        $notification = array(
+        'message' => 'Website Updated Successfully',
+        'alert-type' => 'success'
+       );
+
+       return Redirect()->route('web.setting')->with($notification);
+      
+      }else{
+        $data['logo'] = $oldimage;
+        DB::table('websitesettings')->where('id',$id)->update($data);
+         
+        $notification = array(
+        'message' => 'Website Updated Successfully',
+        'alert-type' => 'success'
+       );
+         return Redirect()->route('web.setting')->with($notification);
+      } // End Condition
+
+    } // End Method
 
 }

@@ -149,6 +149,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('seo.setting') }}"> SEO Setting </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('livetv.setting') }}"> LiveTV Setting </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('notice.setting') }}"> Notice Setting </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('web.setting') }}"> Website Setting </a></li>
               </ul>
             </div>
           </li>

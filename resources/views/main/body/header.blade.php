@@ -4,6 +4,7 @@
 	$social = DB::table('socials')->first();
 	$horizontal = DB::table('ads')->where('type',2)->first();
 
+	$websitesetting = DB::table('websitesettings')->first();
 
 @endphp
 
@@ -14,7 +15,7 @@
 				<div class="col-xs-6 col-md-2 col-sm-4">
 	<div class="header_logo">
 
-		<a href="{{ URL::to('/') }}"><img src="{{ asset('frontend/assets/img/demo_logo.png') }}"></a> 
+		<a href="{{ URL::to('/') }}"><img src="{{ $websitesetting->logo }}"></a> 
 	</div>
 </div>              
 <div class="col-xs-6 col-md-8 col-sm-8">

@@ -236,3 +236,9 @@ Route::get('/edit/writer/{id}', [RoleController::class, 'EditWriter'])->name('ed
 Route::post('/update/writer/{id}', [RoleController::class, 'UpdateWriter'])->name('update.writer');
 
 Route::get('/delete/writer/{id}', [RoleController::class, 'DeleteWriter'])->name('delete.writer');
+
+// Website Setting 
+
+Route::get('/web/setting', [SettingController::class, 'MainWebSetting'])->name('web.setting');
+
+Route::post('update/web/setting/{id}', [SettingController::class, 'UpdateWeb'])->name('update.web');
