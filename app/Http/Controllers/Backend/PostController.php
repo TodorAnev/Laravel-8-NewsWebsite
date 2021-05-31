@@ -10,6 +10,11 @@ use Auth;
 
 class PostController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth'); //return user to the login page
+    }
+
     public function Create(){
     	$category = DB::table('categories')->get();
     	$district = DB::table('districts')->get();

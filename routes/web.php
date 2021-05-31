@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Frontend\ExtraController;
 use App\Http\Controllers\Backend\AdsController;
+use App\Http\Controllers\Backend\RoleController;
 
 
 
@@ -221,3 +222,17 @@ Route::get('/subcatpost/{id}/{subcategory_en}', [ExtraController::class, 'SubCat
 Route::get('/get/subdistrict/frontend/{district_id}', [ExtraController::class, 'GetSubDist']);
 
 Route::get('/search/district', [ExtraController::class, 'SearchDistrict'])->name('searchby.districts');
+
+// Writer Role
+
+Route::get('/add/writer', [RoleController::class, 'InsertWriter'])->name('add.writer');
+
+Route::post('/store/writer', [RoleController::class, 'StoreWriter'])->name('store.writer');
+
+Route::get('/all/writer', [RoleController::class, 'AllWriter'])->name('all.writer');
+
+Route::get('/edit/writer/{id}', [RoleController::class, 'EditWriter'])->name('edit.writer');
+
+Route::post('/update/writer/{id}', [RoleController::class, 'UpdateWriter'])->name('update.writer');
+
+Route::get('/delete/writer/{id}', [RoleController::class, 'DeleteWriter'])->name('delete.writer');

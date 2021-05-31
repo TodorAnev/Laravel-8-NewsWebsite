@@ -8,6 +8,11 @@ use DB;
 
 class SettingController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth'); //return user to the login page
+    }
+    
     public function SocialSetting(){
 
     	$social = DB::table('socials')->first();

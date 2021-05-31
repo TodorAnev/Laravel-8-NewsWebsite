@@ -12,6 +12,7 @@
 12.Fix When there is no posts in subcategory the ad and the other thing(and add links to the other thing!)
 13.Fix breadcrums
 14. Fix footer
+15.User Role, pages are still accesable, just not through the sidebar
 
 
 

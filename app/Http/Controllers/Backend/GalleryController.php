@@ -9,6 +9,11 @@ use Image;
 
 class GalleryController extends Controller
 {
+
+		public function __construct(){
+        $this->middleware('auth'); //return user to the login page
+    }
+
     public function PhotoGallery(){
 
     	$photo = DB::table('photos')->orderBy('id', 'desc')->paginate(5);

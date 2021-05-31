@@ -8,6 +8,11 @@ use DB;
 
 class SubCategoryController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth'); //return user to the login page
+    }
+    
     public function Index(){
     	$subcategory = DB::table('subcategories')
     	->join('categories', 'subcategories.category_id', 'categories.id')

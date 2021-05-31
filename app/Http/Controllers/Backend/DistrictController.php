@@ -9,6 +9,11 @@ use DB;
 
 class DistrictController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth'); //return user to the login page
+    }
+
     public function Index(){
     	$district = DB::table('districts')->orderBy('id', 'desc')->paginate(3); // get all the data
     	//last one displayed first - 'desc' //(3) data per page

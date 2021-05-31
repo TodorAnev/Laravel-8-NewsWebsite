@@ -8,6 +8,11 @@ use DB;
 
 class SubDistrictController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth'); //return user to the login page
+    }
+
     public function Index(){
     	$subdistrict = DB::table('subdistricts')
     	->join('districts', 'subdistricts.district_id', 'districts.id')
