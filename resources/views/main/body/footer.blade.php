@@ -86,9 +86,9 @@ $websitesetting = DB::table('websitesettings')->first();
 				<div class="col-md-6 col-sm-6">
 					<div class="copyright">						
 						@if(session()->get('lang') == 'bulgarian')
-						Всички права запазени © 2021
+						Всички права запазени Easy News © 2021
 						@else
-						All rights reserved © 2021
+						All rights reserved Easy News © 2021
 						@endif 
 					</div>
 				</div>

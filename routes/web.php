@@ -242,3 +242,17 @@ Route::get('/delete/writer/{id}', [RoleController::class, 'DeleteWriter'])->name
 Route::get('/web/setting', [SettingController::class, 'MainWebSetting'])->name('web.setting');
 
 Route::post('update/web/setting/{id}', [SettingController::class, 'UpdateWeb'])->name('update.web');
+
+// Account Setting Route
+
+Route::get('/account/setting', [AdminController::class, 'AccountSetting'])->name('account.setting');
+
+Route::get('/profile/edit', [AdminController::class, 'ProfileEdit'])->name('profile.edit');
+
+Route::post('/profile/store', [AdminController::class, 'ProfileStore'])->name('store.profile');
+
+// Change Password
+
+Route::get('/show/password', [AdminController::class, 'ShowPassword'])->name('show.password');
+
+Route::post('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
