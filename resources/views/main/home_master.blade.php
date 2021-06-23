@@ -1,6 +1,7 @@
 @php
 
 	$seo = DB::table('seos')->first();
+    $websitesetting = DB::table('websitesettings')->first();
 
 @endphp
 

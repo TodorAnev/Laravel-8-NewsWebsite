@@ -747,7 +747,7 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(5)->
 
 									@foreach($latest as $row)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">
+										<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 								@if(session()->get('lang') == 'bulgarian')
 								{{ $row->title_bg }}
 								@else
@@ -762,7 +762,7 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(5)->
 								<div class="news-titletab">
 									@foreach($highest as $row)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">
+										<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 								@if(session()->get('lang') == 'bulgarian')
 								{{ $row->title_bg }}
 								@else

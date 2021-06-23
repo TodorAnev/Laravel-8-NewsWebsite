@@ -52,9 +52,9 @@
 	        <tbody>
 
 	        	@php($i = 1)
-	        	@foreach($subcategory as $row)
+	        	@foreach($subcategory as $key => $row)
 	          <tr>
-	            <td> {{ $i++ }} </td>
+	            <td> {{ $subcategory->firstItem() + $key }} </td>
 	            <td> {{ $row->subcategory_en }} </td>
 	            <td> {{ $row->subcategory_bg }} </td>
 	            <td> {{ $row->category_en }} </td>

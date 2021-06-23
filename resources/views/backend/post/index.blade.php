@@ -56,14 +56,17 @@
 	        <tbody>
 
 	        	@php($i = 1)
-	        	@foreach($post as $row)
+	        	@foreach($post as $key => $row)
 	          <tr>
-	            <td> {{ $i++ }} </td>
+	            <td> {{ $post->firstItem() + $key }} </td>
 	            <td> {{ Str::limit($row->title_en, 10) }} </td>
 	            <td> {{ $row->category_en }} </td>
 	            <td> {{ $row->district_en }} </td>
 	            <td> <img src="{{ URL::to($row->image) }}" alt="Post Image" style="width: 50px; height: 50px;"> </td>
-	            <td>{{ Carbon\Carbon::parse($row->post_date)->diffForHumans() }}</td>
+	            <td>{{ $row->post_date }}</td>
+<!-- 	        can also be done like this:
+	            Carbon\Carbon::parse($row->post_date)->diffForHumans()
+	            if there is an exact time -->
 	            <td> 
 
 		    <a href="{{ route('edit.post',$row->id) }}" class="btn btn-info">Edit</a>

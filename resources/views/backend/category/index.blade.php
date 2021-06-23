@@ -51,9 +51,9 @@
 	        <tbody>
 
 	        	@php($i = 1)
-	        	@foreach($category as $row)
+	        	@foreach($category as $key => $row)
 	          <tr>
-	            <td> {{ $i++ }} </td>
+	            <td> {{ $category->firstItem() + $key }} </td>
 	            <td> {{ $row->category_en }} </td>
 	            <td> {{ $row->category_bg }} </td>
 	            <td> 

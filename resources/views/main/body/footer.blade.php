@@ -9,7 +9,7 @@ $websitesetting = DB::table('websitesettings')->first();
 					<div class="col-md-3 col-sm-4">
 						<div class="foot-logo">
 
-							<img src="{{ $websitesetting->logo }}" style="height: 50px;" />
+							<img src="{{ URL::to($websitesetting->logo) }}" style="height: 50px;" />
 						</div>
 					</div>
 <!-- 					<div class="col-md-6 col-sm-4">

@@ -51,9 +51,9 @@
 	        <tbody>
 
 	        	@php($i = 1)
-	        	@foreach($district as $row)
+	        	@foreach($district as $key => $row)
 	          <tr>
-	            <td> {{ $i++ }} </td>
+	            <td> {{ $district->firstItem() + $key }} </td>
 	            <td> {{ $row->district_en }} </td>
 	            <td> {{ $row->district_bg }} </td>
 	            <td> 

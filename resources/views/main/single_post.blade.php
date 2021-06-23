@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <!-- single-page-start -->
 	
 	<section class="single-page">
@@ -9,21 +10,21 @@
 			<div class="row">
 				<div class="col-md-12">
 					<ol class="breadcrumb">   
-					   <li><a href="#"><i class="fa fa-home"></i></a></li>					   
-						<li><a href="#">
+					   <li><a href="{{ URL::to('/') }}"><i class="fa fa-home"></i></a></li>					   
+						<li>
 							@if(session()->get('lang') == 'bulgarian')
 							{{ $post->category_bg }}
 							@else
 							{{ $post->category_en }}
 							@endif
-						</a></li>
-						<li><a href="#">
+						</li>
+						<li>
 							@if(session()->get('lang') == 'bulgarian')
 							{{ $post->subcategory_bg }}
 							@else
 							{{ $post->subcategory_en }}
 							@endif
-						</a></li>
+						</li>
 					</ol>
 				</div>
 			</div>
@@ -109,9 +110,9 @@ $more = DB::table('posts')->where('category_id', $post->category_id)->orderBy('i
 							<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" style="height: 200px;"></a>
 							<h4 class="heading-02"><a href="{{ URL::to('view/post/' . $row->id) }}">
 								@if(session()->get('lang') == 'bulgarian')
-								{{ $row->title_bg }}
+								{{ Str::limit($row->title_bg, 50) }}
 								@else
-								{{ $row->title_en }}
+								{{ Str::limit($row->title_bg, 50) }}
 								@endif
 							</a> </h4>
 						</div>

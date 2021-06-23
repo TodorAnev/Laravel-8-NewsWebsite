@@ -30,16 +30,22 @@
                   @csrf
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="email" id="email" name="email"class="form-control p_input">
+                    <input type="email" id="email" name="email" class="form-control p_input">
+                    @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label>Password</label>
                     <input type="password" id="password" name="password" class="form-control p_input">
+                    @error('password')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="checkbox" id="remember_me" name="remember" class="form-check-input"> Remember me </label>
+                      <label class="form-label">
+                        <input type="checkbox" id="remember_me" name="remember" class="form-check-input mt-0"> Remember me </label>
                     </div>
                     <a href="{{ route('password.request') }}" class="forgot-pass">Forgot password</a>
                   </div>
