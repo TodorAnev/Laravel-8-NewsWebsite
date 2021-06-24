@@ -1,21 +1,13 @@
 1. Register and Login fields verification 
 3. Remeber me in login page, css is strange, when clicking the button
-
 6. Next page in categories(in everywhere probably) starts from 1.
 7. When a Post is created it says 19 hours ago ?
-8. Video Gallery copies the same videos?
-9. Add gallery title to have bg
 10. Add link to latest and hot news in side bar(home page)
+
 11. Join category table and display the category name in category all page and subcategory all page - can it be done with one db query?
-12.Fix When there is no posts in subcategory the ad and the other thing(and add links to the other thing!)
 13.Fix breadcrums
-14. Fix footer
-15.User Role, pages are still accesable, just not through the sidebar
-16. Does search work?
 17.Frontpage, there are links that lead to nowhere(the big titles)
-18. Change website photo in admin
+19.fix photos to car photos
+18.Change website photo in admin
+15.User Role, pages are still accesable, just not through the sidebar
 
-
-
-- I am skipping folder 11 - 3rd video, it has functionalities that are already in the site and it's prayer time 
-Maybe do it later not with prayer time, but with something else?

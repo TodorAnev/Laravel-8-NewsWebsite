@@ -2,6 +2,7 @@
 
 @section('admin')
 
+@if(Auth::user()->category == 1)
 	
 <div class="row">
   <div class="col-12 grid-margin stretch-card">
@@ -72,5 +73,11 @@
 	  </div>
 	</div>
   </div>
+
+@else
+
+<h2>No access</h2>
+
+@endif
 
 @endsection

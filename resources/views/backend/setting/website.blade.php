@@ -2,6 +2,8 @@
 
 @section('admin')
 
+@if(Auth::user()->setting == 1)
+
 <div class="row">
   <div class="col-12 grid-margin stretch-card">
     <div class="card corona-gradient-card">
@@ -75,5 +77,11 @@
       </div>
     </div>
  </div>
+
+@else
+
+<h2>No access</h2>
+
+@endif
 
 @endsection

@@ -11,9 +11,14 @@
 					<span>
 						<a href="{{ URL::to('/') }}"><i class="fa fa-home" aria-hidden="true"></i></a> |
 						@if(session()->get('lang') == 'bulgarian')
-						{{ $catname->category_bg }}
+						{{ $districtname->district_bg }}
 						@else
-						{{ $catname->category_en }}
+						{{ $districtname->district_en }}
+						@endif |
+						@if(session()->get('lang') == 'bulgarian')
+						{{ $districtname->subdistrict_bg }}
+						@else
+						{{ $districtname->subdistrict_en }}
 						@endif
 
 						</a>

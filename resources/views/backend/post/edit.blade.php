@@ -2,6 +2,8 @@
 
 @section('admin')
 
+@if(Auth::user()->post == 1)
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @php
@@ -231,5 +233,11 @@ $.each(data,function(key,value){
          });
      });
 </script>
+
+@else
+
+<h2>No access</h2>
+
+@endif
 
 @endsection

@@ -1,6 +1,10 @@
+@php  
+$websitesetting = DB::table('websitesettings')->first();
+@endphp
+
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="{{ URL::to('/') }}"><img src="{{ asset('backend/assets/images/logo.svg') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="{{ URL::to('/') }}"><img src="{{ URL::to($websitesetting->logo) }}" alt="logo" /></a>
           <a class="sidebar-brand brand-logo-mini" href="{{ URL::to('/') }}"><img src="{{ asset('backend/assets/images/logo-mini.svg') }}" alt="logo" /></a>
         </div>
         <ul class="nav">
@@ -38,17 +42,6 @@
                   </div>
                   <div class="preview-item-content">
                     <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-calendar-today text-success"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
                   </div>
                 </a>
               </div>
@@ -237,7 +230,7 @@
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('add.writer') }}"> Add Writer </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('all.writer') }}"> All Writer </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('all.writer') }}"> All Writers </a></li>
               </ul>
             </div>
           </li>
@@ -246,13 +239,5 @@
           
           @endif
 
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
         </ul>
       </nav>

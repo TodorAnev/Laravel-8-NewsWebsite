@@ -94,7 +94,7 @@ $firstcatpostsmall = DB::table('posts')->where('category_id', $firstcategory->id
 
 <div class="col-md-6 col-sm-6">
 	<div class="bg-one">
-		<div class="cetagory-title"><a href="#">
+		<div class="cetagory-title"><a href="{{ URL::to('catpost/'. $firstcategory->id . '/' . $firstcategory->category_en) }}">
 
 			@if(session()->get('lang') == 'bulgarian')
 			{{ $firstcategory->category_bg }}
@@ -102,15 +102,7 @@ $firstcatpostsmall = DB::table('posts')->where('category_id', $firstcategory->id
 			{{ $firstcategory->category_en }}
 			@endif 
 
-			<span>
-
-			@if(session()->get('lang') == 'bulgarian')
-			Повече
-			@else
-			More
-			@endif  
-
-				<i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
+			</a></div>
 		<div class="row">
 
 
@@ -162,26 +154,13 @@ $secondcatpostsmall = DB::table('posts')->where('category_id', $secondcategory->
 
 <div class="col-md-6 col-sm-6">
 	<div class="bg-one">
-		<div class="cetagory-title"><a href="#">
-
-
+		<div class="cetagory-title"><a href="{{ URL::to('catpost/'. $secondcategory->id . '/' . $secondcategory->category_en) }}">
 			@if(session()->get('lang') == 'bulgarian')
 			{{ $secondcategory->category_bg }}
 			@else
 			{{ $secondcategory->category_en }}
 			@endif 
-
-			<span>
-
-			@if(session()->get('lang') == 'bulgarian')
-			Повече
-			@else
-			More
-			@endif  
-
-
-
-				<i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
+	</a></div>
 		<div class="row">
 
 			<div class="col-md-6 col-sm-6">
@@ -314,24 +293,14 @@ $thirdcatpostsmall = DB::table('posts')->where('category_id', $thirdcategory->id
 
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">
+						<div class="cetagory-title-02"><a href="{{ URL::to('catpost/'. $thirdcategory->id . '/' . $thirdcategory->category_en) }}">
 
 
 					@if(session()->get('lang') == 'bulgarian')
 					{{ $thirdcategory->category_bg }}
 					@else
 					{{ $thirdcategory->category_en }}
-					@endif 
-
-					<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
-
-					@if(session()->get('lang') == 'bulgarian')
-					Всички новини
-					@else
-					All News
-					@endif  
-
-							 
+					@endif 	 
 
 						</span></a></div>
 						<div class="row">
@@ -379,25 +348,15 @@ $fourthcatpostsmall = DB::table('posts')->where('category_id', $fourthcategory->
 
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">
+						<div class="cetagory-title-02"><a href="{{ URL::to('catpost/'. $fourthcategory->id . '/' . $fourthcategory->category_en) }}">
 
 
 					@if(session()->get('lang') == 'bulgarian')
 					{{ $fourthcategory->category_bg }}
 					@else
 					{{ $fourthcategory->category_en }}
-					@endif 
-
-					<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
-
-					@if(session()->get('lang') == 'bulgarian')
-					Всички новини
-					@else
-					All News
 					@endif  
-
-							 
-
+				 
 						</span></a></div>
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
@@ -540,7 +499,7 @@ $fifthcatpostsmallskip = DB::table('posts')->skip(3)->where('category_id', $fift
 @endphp
 
 				<div class="col-md-9 col-sm-9">
-					<div class="cetagory-title-02"><a href="#">
+					<div class="cetagory-title-02"><a href="{{ URL::to('catpost/'. $fifthcategory->id . '/' . $fifthcategory->category_en) }}">
 
 
 					@if(session()->get('lang') == 'bulgarian')
@@ -548,16 +507,6 @@ $fifthcatpostsmallskip = DB::table('posts')->skip(3)->where('category_id', $fift
 					@else
 					{{ $fifthcategory->category_en }}
 					@endif 
-
-					<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
-
-					@if(session()->get('lang') == 'bulgarian')
-					Всички новини
-					@else
-					All News
-					@endif  
-
-							 
 
 						</span></a></div>
 
@@ -662,12 +611,12 @@ $district = DB::table('districts')->get();
 
 @endphp
 
-				<div class="cetagory-title-02"><a href="#">			@if(session()->get('lang') == 'bulgarian')
+				<div class="cetagory-title-02 h3">		@if(session()->get('lang') == 'bulgarian')
 					Търсене според област:
 					@else
 					Search by District:
 					@endif
-					<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i></span></a></div>
+					</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 				<form action="{{ route('searchby.districts') }}" method="GET">
 					@csrf
@@ -682,7 +631,13 @@ $district = DB::table('districts')->get();
 					@endif
 			</option>
             @foreach($district as $row)
-            <option value="{{ $row->id }}">{{ $row->district_en }}</option>
+            <option value="{{ $row->id }}">
+            	@if(session()->get('lang') == 'bulgarian')
+				{{ $row->district_bg }}
+				@else
+				{{ $row->district_en }}
+				@endif
+            </option>
             @endforeach
          </select>
 							</div>
@@ -698,7 +653,7 @@ $district = DB::table('districts')->get();
          </select>
 							</div>
 							<div class="col-lg-4">
-								<button class="btn btn-success btn-block">
+								<button class="btn btn-success btn-block" id="jsbutton" disabled>
 				@if(session()->get('lang') == 'bulgarian')
 				Търсене:
 				@else
@@ -711,6 +666,7 @@ $district = DB::table('districts')->get();
 			</div>
 			<br><br>
 				</div>
+				
 
 @php
 
@@ -856,7 +812,7 @@ $photosmall = DB::table('photos')->where('type',0)->orderBy('id', 'desc')->limit
 	                        <div class="photo_list_bg">
 	                            
 	                            @foreach($photosmall as $row)
-	                            <div class="photo_img photo_border active">
+	                            <div class="photo_border active">
 	                                <img src="{{ asset($row->photo) }}" alt="image" onclick="currentDiv(1)">
 	                                <div class="heading-03">
 	                                    {{ $row->title }}
@@ -1000,9 +956,15 @@ $videosmall = DB::table('videos')->where('type',0)->orderBy('id', 'desc')->limit
          type:"GET",
          dataType:"json",
                      success:function(data) {
+                     	$("#jsbutton").removeAttr('disabled');
                         $("#subdistrict_id").empty();
 $.each(data,function(key,value){
-    $("#subdistrict_id").append('<option value="'+value.id+'">'+value.subdistrict_en+'</option>');
+	@if(session()->get('lang') == 'bulgarian')
+	$("#subdistrict_id").append('<option value="'+value.id+'">'+value.subdistrict_bg+'</option>');
+	@else
+	$("#subdistrict_id").append('<option value="'+value.id+'">'+value.subdistrict_en+'</option>');
+	@endif
+    
                               });
 
                      },

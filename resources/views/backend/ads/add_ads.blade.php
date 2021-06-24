@@ -2,6 +2,8 @@
 
 @section('admin')
 
+@if(Auth::user()->ads == 1)
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="row">
@@ -58,5 +60,11 @@
     </div>
   </div>
 </div>
+
+@else
+
+<h2>No access</h2>
+
+@endif
 
 @endsection

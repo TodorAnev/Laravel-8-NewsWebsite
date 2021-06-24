@@ -140,7 +140,7 @@ Route::get('livetv/deactive/{id}', [SettingController::class, 'DeactiveLiveTv'])
 
 // Notice Setting
 
-Route::get('/livetv/notice', [SettingController::class, 'NoticeSetting'])->name('notice.setting');
+Route::get('/notice/setting', [SettingController::class, 'NoticeSetting'])->name('notice.setting');
 
 Route::post('update/notice/{id}', [SettingController::class, 'UpdateNotice'])->name('update.notice');
 

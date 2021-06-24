@@ -101,7 +101,7 @@
 			<!-- login-start -->
 						
 <!-- search-start -->
-<li><div class="search-large-divice">
+<!-- <li><div class="search-large-divice">
 	<div class="search-icon-holder"> <a href="#" class="search-icon" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search" aria-hidden="true"></i></a>
 		<div class="modal fade bd-example-modal-lg" action="" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
 			<div class="modal-dialog modal-lg">
@@ -117,7 +117,7 @@
 						<div class="input-group">
 							<input class="search form-control input-lg" placeholder="search" value="Type Here.." type="text">
 							<span class="input-group-btn">
-							<button class="btn btn-lg" type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+							
 						</span> </div>
 					</form>
 				</div>
@@ -128,7 +128,7 @@
 			</div>
 		</div>
 	</div>
-</div></li>
+</div></li> -->
 			<!-- social-start -->
 			<li>
 				<div class="dropdown">

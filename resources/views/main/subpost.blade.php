@@ -11,12 +11,14 @@
 
 				<div class="single_info">
 					<span>
-						<a href="#"><i class="fa fa-home" aria-hidden="true"></i> 
-					@if(session()->get('lang') == 'bulgarian')
-					Подкатегория
-					@else
-					Subcategory
-					@endif
+						<a href="{{ URL::to('/') }}"><i class="fa fa-home" aria-hidden="true"></i></a> |
+						<a href="">
+							@if(session()->get('lang') == 'bulgarian')
+							{{ $subcatname->subcategory_bg }} 
+							@else
+							{{ $subcatname->subcategory_en }} 
+							@endif
+						</i>
 					</span>	
 
 				</div>
@@ -27,7 +29,7 @@
 					<div class="row">
 						<div class="col-md-4 col-sm-5">
 							<div class="archive_img_again">
-								<a href="#"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
+								<a href="{{ URL::to('view/post/' . $row->id) }}"><img src="{{ asset($row->image) }}" alt="Notebook"></a>
 							</div>
 						</div>
 						<div class="col-md-8 col-sm-7">
@@ -117,7 +119,7 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(8)->
 
 									@foreach($latest as $row)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">
+										<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 								@if(session()->get('lang') == 'bulgarian')
 								{{ $row->title_bg }}
 								@else
@@ -132,7 +134,7 @@ $highest = DB::table('posts')->orderBy('id', 'asc')->inRandomOrder()->limit(8)->
 								<div class="news-titletab">
 									@foreach($highest as $row)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">
+										<h4 class="heading-03"><a href="{{ URL::to('view/post/' . $row->id) }}">
 								@if(session()->get('lang') == 'bulgarian')
 								{{ $row->title_bg }}
 								@else

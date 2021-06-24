@@ -49,8 +49,9 @@ class ExtraController extends Controller
     public function CatPost($id, $category_en){
 
         $catposts = DB::table('posts')->where('category_id', $id)->orderBy('id', 'desc')->paginate(5);
+        $catname = DB::table('categories')->where('id', $id)->first();
 
-        return view('main.allpost', compact('catposts'));
+        return view('main.allpost', compact('catposts','catname'));
 
     }
 
@@ -58,8 +59,8 @@ class ExtraController extends Controller
 
 
         $subcatposts = DB::table('posts')->where('subcategory_id', $id)->orderBy('id', 'desc')->paginate(5);
-
-        return view('main.subpost', compact('subcatposts'));
+        $subcatname = DB::table('subcategories')->where('id', $id)->first();
+        return view('main.subpost', compact('subcatposts', 'subcatname'));
 
     }
 
@@ -72,9 +73,19 @@ class ExtraController extends Controller
         $district_id = $request->district_id;
         $subdistrict_id = $request->subdistrict_id;
 
-
         $catposts = DB::table('posts')->where('district_id', $district_id)->where('subdistrict_id', $subdistrict_id)->orderBy('id', 'desc')->paginate(5);
+        $districtname = DB::table('posts')
+        ->join('districts', 'posts.district_id', 'districts.id')
+        ->join('subdistricts', 'posts.subdistrict_id', 'subdistricts.id')
+        ->select('posts.*',
+            'subdistricts.subdistrict_en', 
+            'subdistricts.subdistrict_bg', 
+            'districts.district_en', 
+            'districts.district_bg')
+        ->where('posts.district_id', $district_id)
+        ->where('posts.subdistrict_id', $subdistrict_id)
+        ->first();
 
-        return view('main.allpost', compact('catposts'));
+       return view('main.search_district', compact('catposts','districtname'));
     }
 }
