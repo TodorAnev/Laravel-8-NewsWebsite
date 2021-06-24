@@ -58,4 +58,10 @@
     </div>
  </div>
 
+@else
+
+<h2>No access</h2>
+
+@endif
+
 @endsection

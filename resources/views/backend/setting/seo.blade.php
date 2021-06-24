@@ -2,7 +2,7 @@
 
 @section('admin')
 
-@if(Auth::user()->role == 1)
+@if(Auth::user()->setting == 1)
 
 <div class="row">
   <div class="col-12 grid-margin stretch-card">
