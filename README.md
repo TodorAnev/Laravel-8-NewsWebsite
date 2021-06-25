@@ -10,6 +10,8 @@
 - AJAX Functionalities
 - Facebook Comment System
 
+## User Data
+
 ### Admin
 
 Username : admin@gmail.com
@@ -17,4 +19,7 @@ Password : admin1234
 
 ### User
 
-Username : 
+Username : user@gmail.com  
+Password : user1234
+
+#### Database is in database folder (news.zip)
