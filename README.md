@@ -9,3 +9,12 @@
 - Image Upload System
 - AJAX Functionalities
 - Facebook Comment System
+
+# Admin
+
+Username : admin@gmail.com
+Password : admin1234
+
+# User
+
+Username : 
